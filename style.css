@@ -14,22 +14,46 @@ body {
 }
 /*VARIAVEIS*/
 :root {
-	--cor-1: 251, 140, 0; /* #fb8c00 laranjado*/
+	--cor-1: 251, 140, 0; /*#fb8c00 laranjado*/
 	--cor-2: 0, 200, 83; /* #00c853 verde*/
+	--cor-3: 255, 99, 71; /* #ff6347 tomato*/
+	--cor-4: 17,96,248; /* #1160f8 azul*/
     
     --cor-font: #f2f2f2;
 
-	--cor-tema: var(--cor-1); 
+	--cor-tema: var(--cor-4); 
 	--cor-bordas: 95, 98, 103; /* #5f6267 */
 	--cor-bg-10: 30, 40, 53; /* #1e2835 */
 	--cor-bg-80: 20, 27, 36; /* #141b24 */
 	--cor-bg-100: 17, 23, 30; /* #11171e */
 
-	--cor-icones-svg: invert(62%) sepia(46%) saturate(4781%) hue-rotate(3deg) brightness(105%) contrast(104%);
-	--cor-texto-svg: invert(99%) sepia(11%) saturate(109%) hue-rotate(215deg) brightness(112%) contrast(90%);
+	--cor-icones-svg: var(--svg-4);
+	--cor-texto-svg: var(--sgv-branco);
 
-	--box-shadow: rgba(0, 0, 0, 0.5) 1.95px 1.95px 2.6px;;
+	--box-shadow: rgba(0, 0, 0, 0.5) 1.95px 1.95px 2.6px;
+	--tremer: tremer 0.82s cubic-bezier(.36,.07,.19,.97) both;
 
+--sgv-branco: invert(99%) sepia(11%) saturate(109%) hue-rotate(215deg) brightness(112%) contrast(90%);
+--sgv-1: invert(62%) sepia(46%) saturate(4781%) hue-rotate(3deg) brightness(105%) contrast(104%);
+--sgv-2:  invert(60%) sepia(68%) saturate(2554%) hue-rotate(101deg) brightness(93%) contrast(101%);
+--svg-3: invert(66%) sepia(67%) saturate(4932%) hue-rotate(331deg) brightness(100%) contrast(103%);
+--svg-4: invert(22%) sepia(100%) saturate(2439%) hue-rotate(216deg) brightness(101%) contrast(95%);
+
+}
+/*ANIMACAO TREMER*/
+@keyframes tremer {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 /*ESTILOS*/
@@ -41,7 +65,7 @@ body {
 /*-------------------------------*/
 /*HELPERS*/
 .hidden {
-	display: none;
+	display: none;	
 }
 /*-------------------------------*/
 /*NAVBAR*/
@@ -70,6 +94,7 @@ body {
 .icon-svg-link {
 	width: 1.5em;
 	margin-right: 2em;
+	margin-left: 20px;
 	filter: var(--cor-texto-svg);
 }
 .icon-svg-contato {
@@ -90,7 +115,8 @@ body {
 	background-color: rgba(var(--cor-bg-10),1);
 	border: 1px solid rgba(var(--cor-bordas),1);
 	border-radius: 15px;
-	box-shadow: var(--box-shadow);
+	box-shadow: var(--box-shadow);    
+	overflow: hidden;
 }
 .modal-links {	
 	width: 100%;
@@ -101,13 +127,21 @@ body {
 }
 .imagem-perfil {
 	width: 200px;
-	clip-path: circle(38% at 50% 50%);
+	/*clip-path: circle(40% at 48% 50%);*/
+	margin-bottom: 1em;
 }
+.imagem-perfil:hover {
+  	animation: var(--tremer);
+}
+/*-------------------------------*/
 .titulo-perfil {
+	display: inline-block;
 	height: 50px;
 	font-family: 'Orbitron', sans-serif;
-	font-size: 1.25em;
+	font-size: 1.5em;
+	letter-spacing: .25em;
 	color: var(--cor-font);
+	text-transform: uppercase;
 }
 .sobrenome {
 	color: rgba(var(--cor-tema),1);
@@ -122,10 +156,16 @@ body {
 	color: var(--cor-font);
 	text-transform: uppercase;	
 	font-size: 1.25em;
-	letter-spacing: .35em;
+	letter-spacing: .35em;	
+}
+.ul-item:hover {
+  	animation: var(--tremer);
+	background: rgba( var(--cor-tema),0.2);
+
 }
 .ul-item {
-	width: 100%;
+	margin-left: -10px;
+	width: 110%;
 	border-top: 1px solid rgba(var(--cor-bordas),1);	
 	padding: 0.5em;
 	display: flex;
@@ -161,7 +201,7 @@ body {
 /*-------------------------------*/
 .sobre-mim {
 	background-color: rgba(var(--cor-bg-100),1);
-	min-height: 600px;
+	min-height: 650px;
 }
 /*-------------------------------*/
 .soft-skills {

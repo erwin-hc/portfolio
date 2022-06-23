@@ -17,6 +17,10 @@ window.onscroll = function() {
     navbar.style.boxShadow = `${shadow}`;
   }
 
+  if (window.pageYOffset > 500) {
+    modalLinks.classList.add('hidden');
+  }
+
 } 
 
 // ABRE MODAL LINKS
