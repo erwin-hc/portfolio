@@ -17,12 +17,12 @@
 	<!-- nav bar -->
 	<nav class="navbar">
 			<!-- imagem perfil / logo -->
-			<img class="icon-svg logo-svg" src="assets/logo-icon.svg" alt="">
+			<img class="icon-svg logo-svg" src="assets/logo-icon.svg" alt="" onclick="abreModalLink()">
 			<!-- icone configuracao -->
 			<img class="icon-svg" src="assets/config-icon.svg" alt="">
 	</nav>
 </header>
-<div class="flex-container"> <!-- flex container -->
+<div class="flex-container" onclick="fechaModalLink()"> <!-- flex container -->
 <!-- sectio sobre-mim -->
 <section class="sobre-mim section-container">
 	
@@ -50,23 +50,28 @@
 </footer>
 <!------------------------------------------------------>
 <!-- modal menu-links -->
-<div class="modal-links">
-	<div class="modal-links-container">
+<div class="modal-links-container hidden">
+	<div class="modal-links">
 		<img class="imagem-perfil" src="assets/img-perfil.png" alt="">
 		<h3 class="titulo-perfil">Erwin Guilherme <span class="sobrenome">Stein</span></h3>
 
 		<ul class="ul-container">
-			<li class="ul-item"><a href="#">Sobre-Mim</a></li>
-			<li class="ul-item"><a href="#">Soft-Skills</a></li>
-			<li class="ul-item"><a href="#">Formação</a></li>
-			<li class="ul-item"><a href="#">Portifólio</a></li>
-			<li class="ul-item"><a href="#">Contato</a></li>
+			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/sobre-mim.svg">
+			Sobre-Mim</li></a>
+			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/soft-skills.svg">
+			Soft-Skills</li></a>
+			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/formacao.svg">
+			Formação</li></a>
+			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/portifolio.svg">
+			Portifólio</li></a>
+			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/contato.svg">
+			Contato</li></a>
+			<div class="div-contato">
+				<img class="icon-svg-contato" src="assets/email.svg">
+				<img class="icon-svg-contato" src="assets/linkedin.svg">
+				<img class="icon-svg-contato" src="assets/github.svg">
+			</div>
 		</ul>
-		<div class="icon-contato">
-			<img class="icon-svg" src="assets/email.svg" alt="">
-			<img class="icon-svg" src="assets/linkedin.svg" alt="">
-			<img class="icon-svg" src="assets/github.svg" alt="">
-		</div>
 	<!---------------------------------------------------->
 	</div>
 </div>
