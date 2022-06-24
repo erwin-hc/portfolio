@@ -5,14 +5,26 @@
 /* font-family: 'Exo 2', sans-serif; */
 /*RESET*/
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;	
+  margin: 0;
+  padding: 0;
+  font-family: 'Exo 2', sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  list-style: none;
+  text-decoration: none;
+}
+*::selection {
+  background: rgba(var(--cor-tema),0.5);
+  color: #eee;
+}
+section {
+  padding: 50px 10%;
 }
 body {
-	font-family: 'Exo 2', sans-serif;
-	scroll-behavior: smooth;
+	  min-height: 100vh;
 }
+
 /*VARIAVEIS*/
 :root {
 	--cor-bg-full: var(--cor-bg-dark-full);
@@ -59,10 +71,6 @@ body {
   }
 }
 
-/*ESTILOS*/
-body {
-	width: 100vw;
-}
 /*-------------------------------*/
 /*HELPERS*/
 .hidden {
@@ -83,6 +91,7 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	z-index: 2;
 }
 /*-------------------------------*/
 /*ICONES*/
@@ -112,10 +121,14 @@ body {
 
 /*-------------------------------*/
 /*modal-links*/
-.modal-links-container, .modal-config-container {
+.modal-links-container {
 	position: absolute;
+	top: 0;
+	left: 0;
 	top: 20px;
 	left: 1em;
+/*	width: 100vw;
+	height: 100vh;*/
 	width: 320px;
 	height: 600px;
 	min-height: 600px;
@@ -126,7 +139,7 @@ body {
 	box-shadow: var(--box-shadow);    
 	overflow: hidden;
 }
-.modal-links, .modal-config {	
+.modal-links {	
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -188,18 +201,38 @@ body {
 	border-top: 1px solid rgba(var(--cor-bordas),1);
 }
 /*-------------------------------*/
+/*modal-config*/
 .modal-config-container {
+	position: absolute;
+	top: 20px;
 	right: 1em;
 	left: auto;
-	height: 300px;
-	min-height: 300px;
+	height: 250px;
+	min-height: 250px;
+	width: 250px;
+	z-index: 1;
+	background-color: rgba(var(--cor-bg-dark-med),1);
+	border: 1px solid rgba(var(--cor-bordas),1);
+	border-radius: 15px;
+	box-shadow: var(--box-shadow);    
+	overflow: hidden;
 }
+.modal-config {	
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 
 .titulo-cores {
 	width: 100%;
+	max-width: 250px;
 	text-align: center;
 	font-family: 'Orbitron', sans-serif;
-	font-size: 1.10em;
+	font-size: .75em;
 	letter-spacing: 4px;
 	color: var(--cor-font);
 	text-transform: uppercase;
@@ -216,13 +249,12 @@ body {
 	height: 100px;
 	justify-content: space-evenly;
 	align-items: center;
-
+	max-width: 250px;
 }
 .icone-cores {
 	border-radius: 50%;
-	width: 65px;
-	height: 65px;
-	border: 2px solid;
+	width: 45px;
+	height: 45px;
 
 }
 .icone-cores:hover {
@@ -265,9 +297,8 @@ body {
 .section-title {
 	font-family: 'Orbitron', sans-serif;
 	color: rgb(var(--cor-tema));
-	margin-left: 3em;
-	margin-top: 5em;
-	font-size: 3em;
+	margin-top: 100px;
+	font-size: clamp(1rem, 5vw, 2.5rem);
 }
 /*-------------------------------*/
 .sobre-mim {
