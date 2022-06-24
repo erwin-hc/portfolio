@@ -11,32 +11,35 @@
 }
 body {
 	font-family: 'Exo 2', sans-serif;
+	scroll-behavior: smooth;
 }
 /*VARIAVEIS*/
 :root {
-	--cor-1: 251, 140, 0; /*#fb8c00 laranjado*/
-	--cor-2: 0, 200, 83; /* #00c853 verde*/
-	--cor-3: 255, 99, 71; /* #ff6347 tomato*/
-	--cor-4: 17,96,248; /* #1160f8 azul*/
-    
-    --cor-font: #f2f2f2;
-
+	--cor-bg-full: var(--cor-bg-dark-full);
+	--cor-bg-med: var(--cor-bg-dark-med);
+	--cor-font: var(--font-bg-dark);
 	--cor-tema: var(--cor-4); 
-	--cor-bordas: 95, 98, 103; /* #5f6267 */
-	--cor-bg-10: 30, 40, 53; /* #1e2835 */
-	--cor-bg-80: 20, 27, 36; /* #141b24 */
-	--cor-bg-100: 17, 23, 30; /* #11171e */
-
 	--cor-icones-svg: var(--svg-4);
-	--cor-texto-svg: var(--sgv-branco);
+	--cor-bordas: var(--cor-bordas-light);
 
+	--cor-bordas-light: 95, 98, 103;    
+    --font-bg-dark: #f2f2f2;
+    --font-bg-ligth: #181818; 	
+	--cor-bg-dark-med: 20,27,33;
+    --cor-bg-dark-full: 17,23,30;
+
+	--cor-1: 251, 140, 0; /*#fb8c00 laranjado*/
+	--cor-2: 0,   200, 83; /* #00c853 verde*/
+	--cor-3: 255, 99,  71; /* #ff6347 tomato*/
+	--cor-4: 17,  96,  248; /* #1160f8 azul*/
+    
 	--box-shadow: rgba(0, 0, 0, 0.5) 1.95px 1.95px 2.6px;
 	--tremer: tremer 0.82s cubic-bezier(.36,.07,.19,.97) both;
 
---sgv-branco: invert(99%) sepia(11%) saturate(109%) hue-rotate(215deg) brightness(112%) contrast(90%);
---sgv-1: invert(62%) sepia(46%) saturate(4781%) hue-rotate(3deg) brightness(105%) contrast(104%);
---sgv-2:  invert(60%) sepia(68%) saturate(2554%) hue-rotate(101deg) brightness(93%) contrast(101%);
---svg-3: invert(66%) sepia(67%) saturate(4932%) hue-rotate(331deg) brightness(100%) contrast(103%);
+--svg-branco: invert(99%) sepia(11%) saturate(109%) hue-rotate(215deg) brightness(112%) contrast(90%);
+--svg-1: invert(62%) sepia(46%) saturate(4781%) hue-rotate(3deg) brightness(105%) contrast(104%);
+--svg-2: invert(60%) sepia(68%) saturate(2554%) hue-rotate(101deg) brightness(93%) contrast(101%);
+--svg-3: invert(46%) sepia(92%) saturate(1132%) hue-rotate(331deg) brightness(101%) contrast(100%);
 --svg-4: invert(22%) sepia(100%) saturate(2439%) hue-rotate(216deg) brightness(101%) contrast(95%);
 
 }
@@ -59,8 +62,6 @@ body {
 /*ESTILOS*/
 body {
 	width: 100vw;
-	background-color: rgba(var(--cor-bg-100),1);
-
 }
 /*-------------------------------*/
 /*HELPERS*/
@@ -70,7 +71,7 @@ body {
 /*-------------------------------*/
 /*NAVBAR*/
 .navbar {
-	background-color: rgba(var(--cor-bg-10),1);
+	background-color: rgba(var(--cor-bg-dark-med),1);
 	height: 80px;
 	box-shadow: var(--box-shadow);
 	position: fixed;
@@ -95,30 +96,38 @@ body {
 	width: 1.5em;
 	margin-right: 2em;
 	margin-left: 20px;
-	filter: var(--cor-texto-svg);
+	filter: var(--cor-icones-svg);
+	opacity: 0.8;
 }
 .icon-svg-contato {
 	width: 2em;
-	filter: var(--cor-texto-svg);
+	filter: var(--cor-icones-svg);
 	margin: 1.5em;
 }
+
+.div-contato a:hover {	
+	animation: var(--tremer); 
+} 
+
+
 /*-------------------------------*/
 /*modal-links*/
-.modal-links-container {
+.modal-links-container, .modal-config-container {
 	position: absolute;
-	top: 1em;
+	top: 20px;
 	left: 1em;
 	width: 320px;
 	height: 600px;
 	min-height: 600px;
 	z-index: 1;
-	background-color: rgba(var(--cor-bg-10),1);
+	background-color: rgba(var(--cor-bg-dark-med),1);
 	border: 1px solid rgba(var(--cor-bordas),1);
 	border-radius: 15px;
 	box-shadow: var(--box-shadow);    
 	overflow: hidden;
 }
-.modal-links {	
+.modal-links, .modal-config {	
+	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -133,9 +142,7 @@ body {
 .imagem-perfil:hover {
   	animation: var(--tremer);
 }
-/*-------------------------------*/
 .titulo-perfil {
-	display: inline-block;
 	height: 50px;
 	font-family: 'Orbitron', sans-serif;
 	font-size: 1.5em;
@@ -161,7 +168,6 @@ body {
 .ul-item:hover {
   	animation: var(--tremer);
 	background: rgba( var(--cor-tema),0.2);
-
 }
 .ul-item {
 	margin-left: -10px;
@@ -174,14 +180,70 @@ body {
 	align-content: flex-start;
 }
 .div-contato {
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 80px;
 	border-top: 1px solid rgba(var(--cor-bordas),1);
 }
+/*-------------------------------*/
+.modal-config-container {
+	right: 1em;
+	left: auto;
+	height: 300px;
+	min-height: 300px;
+}
+
+.titulo-cores {
+	width: 100%;
+	text-align: center;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 1.10em;
+	letter-spacing: 4px;
+	color: var(--cor-font);
+	text-transform: uppercase;
+	margin-bottom: 1.5em;
+}
+
+.titulo-cores span {
+	color: rgba(var(--cor-tema),1);
+}
+
+.cores-container {
+	display: flex;
+	width: 100%;
+	height: 100px;
+	justify-content: space-evenly;
+	align-items: center;
+
+}
+.icone-cores {
+	border-radius: 50%;
+	width: 65px;
+	height: 65px;
+	border: 2px solid;
+
+}
+.icone-cores:hover {
+  	animation: var(--tremer);
+}
+
+.cor-1 {
+	background-color: rgba(var(--cor-1),1);
+}
+.cor-2 {
+	background-color: rgba(var(--cor-2),1);
+}
+.cor-3 {
+	background-color: rgba(var(--cor-3),1);
+}
+.cor-4 {
+	background-color: rgba(var(--cor-4),1);
+}
 
 /*-------------------------------*/
+
 /*CONTAINER*/
 .flex-container {
 	margin: 0 auto;
@@ -193,35 +255,44 @@ body {
 }
 /*SECTION CONTAINER*/
 .section-container {
+	display: flex;
 	width: 100%;
 	max-width: 100%;
 	height: 100vh;
 	min-height: 500px;
 }
+
+.section-title {
+	font-family: 'Orbitron', sans-serif;
+	color: rgb(var(--cor-tema));
+	margin-left: 3em;
+	margin-top: 5em;
+	font-size: 3em;
+}
 /*-------------------------------*/
 .sobre-mim {
-	background-color: rgba(var(--cor-bg-100),1);
+	background-color: rgba(var(--cor-bg-dark-full),1);
 	min-height: 650px;
 }
 /*-------------------------------*/
 .soft-skills {
-	background-color: rgba(var(--cor-bg-80),1);
+	background-color: rgba(var(--cor-bg-dark-med),1);
 }
 /*-------------------------------*/
 .formacao {
-	background-color: rgba(var(--cor-bg-100),1);
+	background-color: rgba(var(--cor-bg-dark-full),1);
 }
 /*-------------------------------*/
 .experiencias {
-	background-color: rgba(var(--cor-bg-80),1);
+	background-color: rgba(var(--cor-bg-dark-med),1);
 }
 /*-------------------------------*/
 .contato {
-	background-color: rgba(var(--cor-bg-100),1);
+	background-color: rgba(var(--cor-bg-dark-full),1);
 }
 /*-------------------------------*/
 /*FOOTER*/
 .footer {
-	background-color: rgba(var(--cor-bg-10),1);
+	background-color: rgba(var(--cor-bg-dark-med),1);
 	height: 80px;
 }

@@ -8,40 +8,38 @@
 	<!-- STYLE -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<!-- script -->
-	<script src="script.js"></script>	
-
-
+	
 </head>
 <body>
 <header>
 	<!-- nav bar -->
 	<nav class="navbar">
 			<!-- imagem perfil / logo -->
-			<img class="icon-svg logo-svg" src="assets/logo-icon.svg" alt="" onclick="abreModalLink()">
+			<img class="icon-svg logo-svg" src="assets/logo-icon.svg" onclick="abreModalLink()">
 			<!-- icone configuracao -->
-			<img class="icon-svg" src="assets/config-icon.svg" alt="">
+			<img class="icon-svg" src="assets/config-icon.svg" onclick="abreModalConfig()">
 	</nav>
 </header>
-<div class="flex-container" onclick="fechaModalLink()"> <!-- flex container -->
+<div class="flex-container" onclick="fechaModalLink(),fechaModalConfig()"> <!-- flex container -->
 <!-- sectio sobre-mim -->
-<section class="sobre-mim section-container">
-	
+<section id="sobre" class="sobre-mim section-container">
+	<h1 class="section-title">Sobre-Mim</h1>
 </section>
 <!-- sectio soft skills -->
-<section class="soft-skills section-container">
-
+<section id="skills" class="soft-skills section-container">
+	<h1 class="section-title">Soft-Skills</h1>
 </section>	
 <!-- sectio formacao -->
-<section class="formacao section-container">
-
+<section id="formacao" class="formacao section-container">
+	<h1 class="section-title">Formação</h1>
 </section>	
 <!-- sectio experiencias -->
-<section class="experiencias section-container">
-
+<section id="experiencias" class="experiencias section-container">
+	<h1 class="section-title">Experiências</h1>
 </section>	
 <!-- sectio contato -->
-<section class="contato section-container">
-
+<section id="contato" class="contato section-container">
+	<h1 class="section-title">Contato</h1>
 </section>	
 </div> <!-- fim flex container -->	
 <!-- footer -->
@@ -56,25 +54,39 @@
 		<h3 class="titulo-perfil">Erwin <span class="sobrenome">Stein</span></h3>
 
 		<ul class="ul-container">
-			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/sobre-mim.svg">
-			Sobre-Mim</li></a>
-			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/soft-skills.svg">
-			Soft-Skills</li></a>
-			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/formacao.svg">
-			Formação</li></a>
-			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/portifolio.svg">
-			Portifólio</li></a>
-			<a href="#"><li class="ul-item"><img class="icon-svg-link"src="assets/contato.svg">
-			Contato</li></a>
-			<div class="div-contato">
-				<img class="icon-svg-contato" src="assets/email.svg">
-				<img class="icon-svg-contato" src="assets/linkedin.svg">
-				<img class="icon-svg-contato" src="assets/github.svg">
-			</div>
+			<a href="#sobre" onclick="fechaModalLink()"><li class="ul-item"><img class="icon-svg-link"src="assets/sobre-mim.svg">Sobre-Mim</li></a>
+			<a href="#skills" onclick="fechaModalLink()"><li class="ul-item"><img class="icon-svg-link"src="assets/soft-skills.svg">Soft-Skills</li></a>
+			<a href="#formacao" onclick="fechaModalLink()"><li class="ul-item"><img class="icon-svg-link"src="assets/formacao.svg">Formação</li></a>
+			<a href="#experiencias"onclick="fechaModalLink()"><li class="ul-item"><img class="icon-svg-link"src="assets/portifolio.svg">Portifólio</li></a>
+			<a href="#contato"onclick="fechaModalLink()"><li class="ul-item"><img class="icon-svg-link"src="assets/contato.svg">Contato</li></a>
 		</ul>
-	<!---------------------------------------------------->
+			<div class="div-contato">
+				<a href="mailto:erwin.stein@gmail.com?subject=[Portifólio] Erwin Stein" target="_blank"><img class="icon-svg-contato" 
+				src="assets/email.svg" onclick="fechaModalLink()"></a>
+				<a href="https://www.linkedin.com/in/erwin-guilherme-stein"target="_blank"><img class="icon-svg-contato"
+				src="assets/linkedin.svg" onclick="fechaModalLink()"></a>
+				<a href="https://github.com/erwin-hc" target="_blank"><img class="icon-svg-contato" 
+				src="assets/github.svg" onclick="fechaModalLink()"></a>
+			</div>
 	</div>
 </div>
-
+<!---------------------------------------------------->
+<!-- modal configuracoes -->
+<div class="modal-config-container hidden">
+	<div class="modal-config">
+			<h3 class="titulo-cores">Selecione uma <span>cor</span></h3>
+			<div class="cores-container">
+				<div class="icone-cores cor-1" data-cor="1"></div>
+				<div class="icone-cores cor-2" data-cor="2"></div>
+				<div class="icone-cores cor-3" data-cor="3"></div>
+				<div class="icone-cores cor-4" data-cor="4"></div>
+			</div>
+	</div>
+</div>
+<!---------------------------------------------------->
+<!-- Scroll Reveal -->
+<script src="https://unpkg.com/scrollreveal"></script>
+<!---------------------------------------------------->
+<script src="script.js"></script>	
 </body>
 </html>
