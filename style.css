@@ -85,13 +85,39 @@ body {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	display: block;
 	transition: all 1s;
-
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
-	z-index: 2;
+
+}
+
+.nav-ul-container {
+	display: flex;
+	flex-direction: row;
+	flex: 3;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+	margin-right: 1em;
+}
+.nav-ul-container a {
+	text-decoration: none;
+	color: rgba(var(--cor-tema),1);
+	text-transform: uppercase;	
+	font-size: 1em;
+	/*letter-spacing: .15em;	*/
+	font-family: 'Exo 2', sans-serif; 
+
+}
+
+.nav-ul-item {
+	margin: 1em;
+	padding-bottom: .5em;
+}
+.nav-ul-item:hover {
+	/*transition: all 100ms;*/
+	border-bottom: 4px solid rgba( var(--cor-tema),0.3);
 }
 /*-------------------------------*/
 /*ICONES*/
@@ -105,8 +131,8 @@ body {
 	width: 1.5em;
 	margin-right: 2em;
 	margin-left: 20px;
-	filter: var(--cor-icones-svg);
-	opacity: 0.8;
+	filter: var(--svg-branco);
+
 }
 .icon-svg-contato {
 	width: 2em;
@@ -117,6 +143,9 @@ body {
 .div-contato a:hover {	
 	animation: var(--tremer); 
 } 
+.logo-svg {
+	z-index: 2;
+}
 
 
 /*-------------------------------*/
@@ -138,6 +167,7 @@ body {
 	border-radius: 15px;
 	box-shadow: var(--box-shadow);    
 	overflow: hidden;
+	overflow-y: scroll;
 }
 .modal-links {	
 	height: 100%;
@@ -304,7 +334,13 @@ body {
 .sobre-mim {
 	background-color: rgba(var(--cor-bg-dark-full),1);
 	min-height: 650px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
+
 /*-------------------------------*/
 .soft-skills {
 	background-color: rgba(var(--cor-bg-dark-med),1);
@@ -326,4 +362,74 @@ body {
 .footer {
 	background-color: rgba(var(--cor-bg-dark-med),1);
 	height: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------------------*/
+/*MEDIA QUERIES*/
+/*----------------------------------------------------------------------*/
+/* DESKTOP  */
+@media only screen and (min-width: 769px) {
+
+}
+/*----------------------------------------------------------------------*/
+/* TABLET */
+/*----------------------------------------------------------------------*/
+@media only screen and (min-width: 481px) and (max-width:768px) {
+	.navbar {
+		justify-content: space-between;
+	}
+	.nav-ul-container {
+		display: none;
+	}
+
+
+
+}
+
+/*----------------------------------------------------------------------*/
+/* CELPHONE */
+/*----------------------------------------------------------------------*/
+@media only screen and (max-width: 480px) {
+	.navbar {
+		justify-content: space-between;
+	}
+	.nav-ul-container {
+		display: none;
+	}
+
+
+}
+
+/*----------------------------------------------------------------------*/
+/* CELPHONE-LANDSCAPE */
+/*----------------------------------------------------------------------*/
+@media only screen and (max-height: 480px) {
+	.logo-svg {
+		display: none;
+	}
+	.nav-ul-container {
+		display: flex;
+
+	}
+
 }

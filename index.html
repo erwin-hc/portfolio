@@ -12,18 +12,37 @@
 </head>
 <body>
 <header>
+
 	<!-- nav bar -->
-	<nav class="navbar">
+	<nav class="navbar">	
 			<!-- imagem perfil / logo -->
 			<img class="icon-svg logo-svg" src="assets/logo-icon.svg">
+			
+		<ul class="nav-ul-container">
+			<a href="#sobre"><li class="nav-ul-item">Sobre-Mim</li></a>
+			<a href="#skills"><li class="nav-ul-item">Soft-Skills</li></a>
+			<a href="#formacao"><li class="nav-ul-item">Formação</li></a>
+			<a href="#experiencias"><li class="nav-ul-item">Portifólio</li></a>
+			<a href="#contato"><li class="nav-ul-item">Contato</li></a>
+		</ul>
+
 			<!-- icone configuracao -->
 			<img class="icon-svg conf-svg" src="assets/config-icon.svg">
+
 	</nav>
+
 </header>
 <div class="flex-container"> <!-- flex container -->
 <!-- sectio sobre-mim -->
+
 <section id="sobre" class="sobre-mim section-container">
+	<div class="sobre-mim-texto">
 	<h1 class="section-title">Sobre-Mim</h1>
+	</div>
+	<div class="sobre-mim-img">
+		<img class="img-sobre" src="assets/img-sobre-4.png">
+		<!-- <img class="img-sobre"src="assets/img-perfil.png" alt=""> -->
+	</div>
 </section>
 <!-- sectio soft skills -->
 <section id="skills" class="soft-skills section-container">
@@ -62,11 +81,11 @@
 		</ul>
 			<div class="div-contato">
 				<a href="mailto:erwin.stein@gmail.com?subject=[Portifólio] Erwin Stein" target="_blank"><img class="icon-svg-contato" 
-				src="assets/email.svg" onclick="fechaModalLink()"></a>
+				src="assets/email.svg"></a>
 				<a href="https://www.linkedin.com/in/erwin-guilherme-stein"target="_blank"><img class="icon-svg-contato"
-				src="assets/linkedin.svg" onclick="fechaModalLink()"></a>
+				src="assets/linkedin.svg"></a>
 				<a href="https://github.com/erwin-hc" target="_blank"><img class="icon-svg-contato" 
-				src="assets/github.svg" onclick="fechaModalLink()"></a>
+				src="assets/github.svg"></a>
 			</div>
 	</div>
 </div>

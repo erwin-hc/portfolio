@@ -10,19 +10,22 @@ var iconeLogo = document.querySelector('.logo-svg');
 var iconeConfig = document.querySelector('.conf-svg');
 var container = document.querySelector('.flex-container');
 var ulLinks = document.querySelector('.ul-container');
+var navUlLinks = document.querySelector('.nav-ul-container');
+var divContato = document.querySelector('.div-contato');
+var imgSobre = document.querySelector('.img-sobre');
 
 /*-------------------------------------------------------------------------------------------------*/
 // ESCONDE/MOSTRA NAVBAR/MODALS SCROLL
-// window.onscroll = function() {
+window.onscroll = function() {
 
-//   if (window.pageYOffset > 0) {
-//     navbar.style.backgroundColor = "transparent";
-//     navbar.style.boxShadow = "none";
-//   } else {
-//     navbar.style.backgroundColor = `rgba(${navBg},1)`;
-//     navbar.style.boxShadow = `${shadow}`;
-//   }
-// } 
+  if (window.pageYOffset > 0) {
+    navbar.style.backgroundColor = "transparent";
+    navbar.style.boxShadow = "none";
+  } else {
+    navbar.style.backgroundColor = `rgba(${navBg},1)`;
+    navbar.style.boxShadow = `${shadow}`;
+  }
+} 
 /*-------------------------------------------------------------------------------------------------*/
 // TRAVA SCROLLBAR
 function travaScrollBars() {
@@ -93,7 +96,15 @@ container.addEventListener("click", function () {
   fechaModalConfig();
 })
 // FECHA MODAL AO CLICAR NO LINK 
-ulLinks.addEventListener('click', function (el) {
+ulLinks.addEventListener('click', function () {
+  fechaModalLink();
+  fechaModalConfig();
+})
+divContato.addEventListener('click', function () {
+  fechaModalLink();
+  fechaModalConfig();
+})
+navUlLinks.addEventListener("click", function(el){
   fechaModalLink();
   fechaModalConfig();
 })
@@ -105,8 +116,12 @@ seletorCores.addEventListener('click', function (el) {
   getComputedStyle(document.documentElement).getPropertyValue(`--svg-${i}`);
   document.documentElement.style.setProperty('--cor-tema', `var(--cor-${i})`);
   document.documentElement.style.setProperty('--cor-icones-svg', `var(--svg-${i})`);
+  var link = `assets/img-sobre-${i}.png`
+  imgSobre.src = link;
   fechaModalConfig();
+  console.log(imgSobre)
 });
+
 
 
 
