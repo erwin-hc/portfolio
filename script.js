@@ -12,7 +12,7 @@ var container = document.querySelector('.flex-container');
 var ulLinks = document.querySelector('.ul-container');
 var navUlLinks = document.querySelector('.nav-ul-container');
 var divContato = document.querySelector('.div-contato');
-var imgSobre = document.querySelector('.img-sobre');
+
 
 /*-------------------------------------------------------------------------------------------------*/
 // ESCONDE/MOSTRA NAVBAR/MODALS SCROLL
@@ -116,16 +116,37 @@ seletorCores.addEventListener('click', function (el) {
   getComputedStyle(document.documentElement).getPropertyValue(`--svg-${i}`);
   document.documentElement.style.setProperty('--cor-tema', `var(--cor-${i})`);
   document.documentElement.style.setProperty('--cor-icones-svg', `var(--svg-${i})`);
-  var link = `assets/img-sobre-${i}.png`
-  imgSobre.src = link;
   fechaModalConfig();
-  console.log(imgSobre)
 });
 
 
 
+/*-------------------------------------------------------------------------------------------------*/
+// typewriter
+/*-------------------------------------------------------------------------------------------------*/
+var code = document.querySelector('.code');
 
+var typewriter = new Typewriter(code, {
+  loop: true,
+  delay: 50,
+});
 
+typewriter
+  .pauseFor(2500)
+  .typeString("<span style='color:#be8ee4'>var </span><span style='color:#89ddff'>estudante  = {</span><span style='color:rgba(var(--cor-tema),1)'>\
+  <br>&emsp;&emsp;<span style='color:#89ddff'>nome:</span> 'Erwin Stein',\
+  <br>&emsp;&emsp;<span style='color:#89ddff'>objetivo:</span> 'Web Designer',\
+  <br>&emsp;&emsp;<span style='color:#89ddff'>localização:</span> 'Terra 😉',\
+  <br>&emsp;&emsp;<span style='color:#89ddff'>cursando: [</span>\
+  <br>&emsp;&emsp;&emsp;'Javascript',\
+  <br>&emsp;&emsp;&emsp;'HTML'\
+  <br>&emsp;&emsp;&emsp;'CSS'\
+  <br>&emsp;&emsp;&emsp;'Análise e <br>&emsp;&emsp;&emsp;Desenvolvimento <br>&emsp;&emsp;&emsp;de Sistemas']\
+  <span style='color:#89ddff'><br>&emsp;&emsp;};</span>")
+  .pauseFor(300)
+  .deleteChars(1)
+  .pauseFor(1000)
+  .start();
 
 /*-------------------------------------------------------------------------------------------------*/
 // SCROLL REVAL
