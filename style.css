@@ -319,9 +319,7 @@ body {
 .section-container {
 	display: flex;
 	width: 100%;
-	max-width: 100%;
 	min-height: 100vh;
-	min-height: 500px;
 }
 
 .section-title {
@@ -363,6 +361,39 @@ body {
 	justify-content: flex-start;
 	align-items: flex-start;
 	height: 500px;
+}
+
+.card-container {
+	width: 400px;
+	height: 400px;
+	border: 1px solid rgba(var(--cor-tema),.5);
+	background-color: rgba(var(--cor-tema),.02);
+	border-radius: 5%;
+
+	display: flex;
+	justify-content: center;
+
+	z-index: 1;
+}
+
+.card-sobre-mim {
+	margin-top: -50px;
+	opacity: .6;
+	/*clip-path: circle(42%);*/
+	border: 1px solid rgba(var(--cor-tema),1);
+	background-color: rgba(var(--cor-tema),.8);
+	border-radius: 5%;
+	overflow: hidden;
+	width: 250px;
+	height: 220px;
+	z-index: 2;
+}
+
+
+
+.img-sobre-mim {
+	width: 250px;
+
 }
 
 

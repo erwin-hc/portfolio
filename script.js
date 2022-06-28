@@ -112,11 +112,14 @@ navUlLinks.addEventListener("click", function(el){
 // SELECIONA COR TEMA
 seletorCores.addEventListener('click', function (el) {
   var i = el.target.getAttribute('data-cor');
+  if (i >= 1) {
   getComputedStyle(document.documentElement).getPropertyValue(`--cor-${i}`);
   getComputedStyle(document.documentElement).getPropertyValue(`--svg-${i}`);
   document.documentElement.style.setProperty('--cor-tema', `var(--cor-${i})`);
   document.documentElement.style.setProperty('--cor-icones-svg', `var(--svg-${i})`);
   fechaModalConfig();
+  }
+
 });
 
 
@@ -128,11 +131,11 @@ var code = document.querySelector('.code');
 
 var typewriter = new Typewriter(code, {
   loop: true,
-  delay: 50,
+  delay: 20,
 });
 
 typewriter
-  .pauseFor(2500)
+  // .pauseFor(300)
   .typeString("<span style='color:#be8ee4'>var </span><span style='color:#89ddff'>estudante  = {</span><span style='color:rgba(var(--cor-tema),1)'>\
   <br>&emsp;&emsp;<span style='color:#89ddff'>nome:</span> 'Erwin Stein',\
   <br>&emsp;&emsp;<span style='color:#89ddff'>objetivo:</span> 'Web Designer',\
@@ -143,8 +146,6 @@ typewriter
   <br>&emsp;&emsp;&emsp;'CSS'\
   <br>&emsp;&emsp;&emsp;'Análise e <br>&emsp;&emsp;&emsp;Desenvolvimento <br>&emsp;&emsp;&emsp;de Sistemas']\
   <span style='color:#89ddff'><br>&emsp;&emsp;};</span>")
-  .pauseFor(300)
-  .deleteChars(1)
   .pauseFor(1000)
   .start();
 
