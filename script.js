@@ -4,8 +4,10 @@ var modalConfig = document.querySelector('.modal-config-container');
 var modalLinks = document.querySelector('.modal-links-container');
 var seletorCores = document.querySelector('.cores-container');
 var navbar = document.querySelector(".navbar");
-var navBg = getComputedStyle(document.documentElement).getPropertyValue('--cor-bg-med'); 
-var shadow = getComputedStyle(document.documentElement).getPropertyValue('--box-shadow'); 
+var navLinks = document.querySelectorAll('.nav-ul-item');
+var navBg = getComputedStyle(document.documentElement).getPropertyValue('--cor-bg-dark'); 
+
+var iconeDark = document.querySelector('.dark-svg');
 var iconeLogo = document.querySelector('.logo-svg');
 var iconeConfig = document.querySelector('.conf-svg');
 var container = document.querySelector('.flex-container');
@@ -17,15 +19,63 @@ var divContato = document.querySelector('.div-contato');
 /*-------------------------------------------------------------------------------------------------*/
 // ESCONDE/MOSTRA NAVBAR/MODALS SCROLL
 window.onscroll = function() {
+   mudaCor(); 
+} 
+function mudaCor() {
+  var shadow = getComputedStyle(document.documentElement).getPropertyValue('--box-shadow'); 
+  var corSvgLinks = getComputedStyle(document.documentElement).getPropertyValue('--cor-svg-liks'); 
+  var corSvgIcones = getComputedStyle(document.documentElement).getPropertyValue('--cor-icones-svg'); 
+  var fontColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-font'); 
+  var corTema = getComputedStyle(document.documentElement).getPropertyValue('--cor-tema'); 
 
   if (window.pageYOffset > 0) {
-    navbar.style.backgroundColor = "transparent";
+
+    iconeLogo.style.filter = `${corSvgLinks}`;
+    iconeConfig.style.filter = `${corSvgLinks}`;
+    iconeDark.style.filter = `${corSvgLinks}`;
+
+    navLinks.forEach(function (index) {
+      index.style.color = `${fontColor}`;
+    })
+    
+    navbar.style.backgroundColor = `rgba(${navBg},0)`;
     navbar.style.boxShadow = "none";
+
   } else {
+    iconeLogo.style.filter = `${corSvgIcones}`;
+    iconeConfig.style.filter = `${corSvgIcones}`;
+    iconeDark.style.filter = `${corSvgIcones}`;
+
     navbar.style.backgroundColor = `rgba(${navBg},1)`;
     navbar.style.boxShadow = `${shadow}`;
+
+    navLinks.forEach(function (index) {
+      index.style.color = `rgba(${corTema})`;
+    })
   }
-} 
+}
+/*-------------------------------------------------------------------------------------------------*/
+// DARK-MODE
+iconeDark.addEventListener('click', function () {
+  body.classList.toggle('dark');
+
+  if (body.classList.contains('dark')) {
+    document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-dark`);
+    document.documentElement.style.setProperty('--cor-font', `var(--font-bg-dark)`);
+    document.documentElement.style.setProperty('--cor-svg-liks', `var(--svg-dark)`);
+    document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-dark)`);
+  } else {
+    document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-ligth`);
+    document.documentElement.style.setProperty('--cor-font', `var(--font-bg-ligth)`);
+    document.documentElement.style.setProperty('--cor-svg-liks', `var(--svg-ligth)`);
+    document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-light)`);
+  }
+  mudaCor();
+
+  // document.documentElement.style.setProperty('--cor-tema', `var(--cor-${i})`);
+
+  // body...
+})
 /*-------------------------------------------------------------------------------------------------*/
 // TRAVA SCROLLBAR
 function travaScrollBars() {
@@ -117,6 +167,8 @@ seletorCores.addEventListener('click', function (el) {
   getComputedStyle(document.documentElement).getPropertyValue(`--svg-${i}`);
   document.documentElement.style.setProperty('--cor-tema', `var(--cor-${i})`);
   document.documentElement.style.setProperty('--cor-icones-svg', `var(--svg-${i})`);
+
+  mudaCor();
   fechaModalConfig();
   }
 
@@ -127,40 +179,44 @@ seletorCores.addEventListener('click', function (el) {
 /*-------------------------------------------------------------------------------------------------*/
 // typewriter
 /*-------------------------------------------------------------------------------------------------*/
+
 var code = document.querySelector('.code');
 
 var typewriter = new Typewriter(code, {
   loop: true,
-  delay: 20,
+  delay: 40,
+  deleteSpeed: 40,
+  skipAddStyles: true,
 });
 
 typewriter
   // .pauseFor(300)
-  .typeString("<span style='color:#be8ee4'>var </span><span style='color:#89ddff'>estudante  = {</span><span style='color:rgba(var(--cor-tema),1)'>\
-  <br>&emsp;&emsp;<span style='color:#89ddff'>nome:</span> 'Erwin Stein',\
-  <br>&emsp;&emsp;<span style='color:#89ddff'>objetivo:</span> 'Web Designer',\
-  <br>&emsp;&emsp;<span style='color:#89ddff'>localização:</span> 'Terra 😉',\
-  <br>&emsp;&emsp;<span style='color:#89ddff'>cursando: [</span>\
+  .typeString("<span style='color:#be8ee4'>var </span><span style='color:var(--cor-font)'>estudante  = {</span><span style='color:rgba(var(--cor-tema),1)'>\
+  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>nome:</span> 'Erwin Stein',\
+  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>objetivo:</span> 'Web Designer',\
+  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>localização:</span> 'Terra 😉',\
+  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>cursando: [</span>\
   <br>&emsp;&emsp;&emsp;'Javascript',\
   <br>&emsp;&emsp;&emsp;'HTML'\
   <br>&emsp;&emsp;&emsp;'CSS'\
-  <br>&emsp;&emsp;&emsp;'Análise e <br>&emsp;&emsp;&emsp;Desenvolvimento <br>&emsp;&emsp;&emsp;de Sistemas']\
-  <span style='color:#89ddff'><br>&emsp;&emsp;};</span>")
-  .pauseFor(1000)
+  <br>&emsp;&emsp;&emsp;'Análise e <br>&emsp;&emsp;&emsp;Desenvolvimento <br>&emsp;&emsp;&emsp;de Sistemas'\
+  <span style='color:var(--cor-font)'>]<br>&emsp;&emsp;};</span>")
+  .pauseFor(500)
   .start();
+
 
 /*-------------------------------------------------------------------------------------------------*/
 // SCROLL REVAL
 /*-------------------------------------------------------------------------------------------------*/
 
-// const sr = ScrollReveal ({
-//     origin: 'top',
-//     distance: '20px',
-//     duration: 1000,
-//     reset: true
-// });
+const sr = ScrollReveal ({
+    origin: 'top',
+    distance: '20px',
+    duration: 500,
+    reset: true
+});
 
-// sr.reveal(`.section-title`, {
-//     interval: 100
-// })
+sr.reveal(`.section-title,.scroll-revel`, {
+    interval: 100
+})
 /*-------------------------------------------------------------------------------------------------*/

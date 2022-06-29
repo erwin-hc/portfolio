@@ -10,7 +10,7 @@
 	<!-- script -->
 	
 </head>
-<body>
+<body class="dark">
 <header>
 
 	<!-- nav bar -->
@@ -27,6 +27,7 @@
 		</ul>
 
 			<!-- icone configuracao -->
+			<img class="icon-svg dark-svg" src="assets/dark-mode.svg">
 			<img class="icon-svg conf-svg" src="assets/config-icon.svg">
 
 	</nav>
@@ -36,18 +37,23 @@
 <!-- sectio sobre-mim -->
 
 <section id="sobre" class="sobre-mim section-container">
-		<div class="sobre-mim-code sobre-mim-filho">
-		<p class="code"></p>
-	  </div>
-	<div class="sobre-mim-texto sobre-mim-filho">
-	
-	<div class="card-container">
-			<div class="card-sobre-mim">
-				<img class="img-sobre-mim"src="assets/img-perfil.png" alt="">
-				<h1 class="section-title">Sobre-Mim</h1>
-			</div>
-		</div>
+
+	<div class="sobre-mim-texto sobre-mim-filho scroll-revel">
+					<div class="card-container">
+					<div class="card-sobre-mim">
+						<img class="img-sobre-mim"src="assets/img-perfil.png" alt="">
+						<h3 class="titulo-perfil">Erwin <span class="sobrenome">Stein</span></h3>
+						<p>Olá, meu nome é Erwin Guilherme Stein, tenho 39 anos.
+						Trabalho como auxiliar administrativo já fazem mais de 10 anos, atualmente estou estudando
+					    tecnologias para mudar de profissão, estou cursando o terceiro semestre de Análise e Desenvolvimento
+					    de Sistemas e também fazendo alguns cursos nesta magnífica área.</p>
+					</div>
+					</div>
 	</div>	
+
+	<div class="sobre-mim-code sobre-mim-filho .scroll-revel">
+		<p class="code"></p>
+	</div>
 
 </section>
 <!-- sectio soft skills -->
@@ -75,7 +81,7 @@
 <!-- modal menu-links -->
 <div class="modal-links-container hidden">
 	<div class="modal-links">
-		<img class="imagem-perfil" src="assets/img-perfil.png" alt="">
+		<!-- <img class="imagem-perfil" src="assets/img-perfil.png" alt=""> -->
 		<h3 class="titulo-perfil">Erwin <span class="sobrenome">Stein</span></h3>
 
 		<ul class="ul-container">
@@ -99,7 +105,7 @@
 <!-- modal configuracoes -->
 <div class="modal-config-container hidden">
 	<div class="modal-config">
-			<h3 class="titulo-cores">Selecione uma <span>cor</span></h3>
+			<h3 class="titulo-cores"><span>cor </span>principal</h3>
 			<div class="cores-container">
 				<div class="icone-cores cor-1" data-cor="1"></div>
 				<div class="icone-cores cor-2" data-cor="2"></div>
