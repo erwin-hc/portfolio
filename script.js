@@ -32,7 +32,7 @@ function mudaCor() {
 
     iconeLogo.style.filter = `${corSvgLinks}`;
     iconeConfig.style.filter = `${corSvgLinks}`;
-    iconeDark.style.filter = `${corSvgLinks}`;
+    // iconeDark.style.filter = `${corSvgLinks}`;
 
     navLinks.forEach(function (index) {
       index.style.color = `${fontColor}`;
@@ -58,19 +58,28 @@ function mudaCor() {
 // DARK-MODE
 iconeDark.addEventListener('click', function () {
   body.classList.toggle('dark');
+  var textDarkLight = document.querySelector('.textoDarkLight');
+
 
   if (body.classList.contains('dark')) {
+
     document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-dark`);
     document.documentElement.style.setProperty('--cor-font', `var(--font-bg-dark)`);
     document.documentElement.style.setProperty('--cor-svg-liks', `var(--svg-dark)`);
     document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-dark)`);
+    textDarkLight.innerHTML = `<span>light-</span>mode`;
+    iconeDark.src="assets/light-mode.svg"
   } else {
     document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-ligth`);
     document.documentElement.style.setProperty('--cor-font', `var(--font-bg-ligth)`);
     document.documentElement.style.setProperty('--cor-svg-liks', `var(--svg-ligth)`);
     document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-light)`);
+   
+    textDarkLight.innerHTML = `<span>dark-</span>mode`;
+    iconeDark.src="assets/dark-mode.svg"
   }
   mudaCor();
+  fechaModalConfig();
 
   // document.documentElement.style.setProperty('--cor-tema', `var(--cor-${i})`);
 
@@ -179,7 +188,7 @@ seletorCores.addEventListener('click', function (el) {
 /*-------------------------------------------------------------------------------------------------*/
 // typewriter
 /*-------------------------------------------------------------------------------------------------*/
-
+// import Typewriter from 'typewriter-effect/dist/core';
 var code = document.querySelector('.code');
 
 var typewriter = new Typewriter(code, {
@@ -194,7 +203,7 @@ typewriter
   .typeString("<span style='color:#be8ee4'>var </span><span style='color:var(--cor-font)'>estudante  = {</span><span style='color:rgba(var(--cor-tema),1)'>\
   <br>&emsp;&emsp;<span style='color:var(--cor-font)'>nome:</span> 'Erwin Stein',\
   <br>&emsp;&emsp;<span style='color:var(--cor-font)'>objetivo:</span> 'Web Designer',\
-  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>localização:</span> 'Terra 😉',\
+  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>localização:</span> 'Terra :-)',\
   <br>&emsp;&emsp;<span style='color:var(--cor-font)'>cursando: [</span>\
   <br>&emsp;&emsp;&emsp;'Javascript',\
   <br>&emsp;&emsp;&emsp;'HTML'\
