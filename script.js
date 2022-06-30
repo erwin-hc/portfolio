@@ -38,7 +38,7 @@ function mudaCor() {
       index.style.color = `${fontColor}`;
     })
     
-    navbar.style.backgroundColor = `rgba(${navBg},0)`;
+    navbar.style.backgroundColor = `rgba(${navBg},0.8)`;
     navbar.style.boxShadow = "none";
 
   } else {
@@ -218,14 +218,14 @@ typewriter
 // SCROLL REVAL
 /*-------------------------------------------------------------------------------------------------*/
 
-const sr = ScrollReveal ({
-    origin: 'top',
-    distance: '20px',
-    duration: 500,
-    reset: true
-});
+// const sr = ScrollReveal ({
+//     origin: 'top',
+//     distance: '20px',
+//     duration: 500,
+//     reset: true
+// });
 
-sr.reveal(`.section-title,.scroll-revel`, {
-    interval: 100
-})
+// sr.reveal(`.section-title,.scroll-revel`, {
+//     interval: 100
+// })
 /*-------------------------------------------------------------------------------------------------*/
