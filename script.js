@@ -21,13 +21,18 @@ var divContato = document.querySelector('.div-contato');
 window.onscroll = function() {
    mudaCor(); 
 } 
+/*-------------------------------------------------------------------------------------------------*/
+// MUDA COR
+
 function mudaCor() {
   var shadow = getComputedStyle(document.documentElement).getPropertyValue('--box-shadow'); 
   var corSvgLinks = getComputedStyle(document.documentElement).getPropertyValue('--cor-svg-liks'); 
   var corSvgIcones = getComputedStyle(document.documentElement).getPropertyValue('--cor-icones-svg'); 
   var fontColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-font'); 
   var corTema = getComputedStyle(document.documentElement).getPropertyValue('--cor-tema'); 
-
+  gaugeJs.options.pointer.color = `rgb(${corTema})`;
+  gaugeJs.setOptions();
+  
   if (window.pageYOffset > 0) {
 
     iconeLogo.style.filter = `${corSvgLinks}`;
@@ -53,6 +58,9 @@ function mudaCor() {
       index.style.color = `rgba(${corTema})`;
     })
   }
+
+
+
 }
 /*-------------------------------------------------------------------------------------------------*/
 // DARK-MODE
@@ -176,11 +184,9 @@ seletorCores.addEventListener('click', function (el) {
   getComputedStyle(document.documentElement).getPropertyValue(`--svg-${i}`);
   document.documentElement.style.setProperty('--cor-tema', `var(--cor-${i})`);
   document.documentElement.style.setProperty('--cor-icones-svg', `var(--svg-${i})`);
-
   mudaCor();
   fechaModalConfig();
   }
-
 });
 
 
@@ -228,4 +234,60 @@ typewriter
 // sr.reveal(`.section-title,.scroll-revel`, {
 //     interval: 100
 // })
+
+
+
+
 /*-------------------------------------------------------------------------------------------------*/
+// GAUGE
+/*-------------------------------------------------------------------------------------------------*/
+
+var corTema = getComputedStyle(document.documentElement).getPropertyValue('--cor-tema'); 
+var canvasJs = document.querySelector('.canvas-js'); // your canvas element
+var canvasCss = document.querySelector('.canvas-css'); // your canvas element
+var skillJs = document.querySelector('.skill-js');
+
+var gauGeopts = {
+  lines: 10,
+  angle: 0.025,
+  lineWidth: 0.2,
+  pointer: {
+    length: 0.5,
+    strokeWidth: 0.03,
+    color: `rgb(${corTema})`
+  },
+  limitMax: 'false', 
+  percentColors: [[0.0, "#ed2960" ], [0.50, "#ddee2c"], [1.0, "#00bc69"]], // !!!!
+  strokeColor: '#BCBCBC',
+  generateGradient: true,
+  gradientType: 0,
+  highDpiSupport: true,
+};
+
+// GAUGE SKILL JS
+var gaugeJs = new Gauge(canvasJs).setOptions(gauGeopts);
+  gaugeJs.maxValue = 3000;
+  gaugeJs.animationSpeed = 45;
+  gaugeJs.set(350);
+  gaugeJs.setMinValue(0);
+
+// GAUGE SKILL CSS
+var gaugeCss = new Gauge(canvasCss).setOptions(gauGeopts);
+  gaugeCss.maxValue = 3000;
+  gaugeCss.animationSpeed = 45;
+  gaugeCss.set(550);
+  gaugeCss.setMinValue(0);
+
+skillJs.addEventListener("mouseover", function () {
+  // gaugeJs.options.pointer.color = `rgb(${corTema})`;
+  gaugeJs.setOptions();
+  gaugeJs.set(3000);
+  console.log(corTema)
+})
+skillJs.addEventListener("mouseout", function () {
+  gaugeJs.setOptions();
+  gaugeJs.set(250);
+
+})
+
+
