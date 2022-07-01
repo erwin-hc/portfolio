@@ -20,45 +20,46 @@
 }
 
 body {
+		width: 100vw;
 	  min-height: 100vh;
 }
 
 /*VARIAVEIS*/
 :root {
-	--cor-bg: var(--cor-bg-dark);
-	--cor-font: var(--font-bg-dark);
-	--cor-tema: var(--cor-2); 
-	--cor-icones-svg: var(--svg-2);
-	--cor-svg-liks: var(--svg-dark);
-	--cor-bordas: var(--cor-bordas-dark);
-	
-	--box-shadow: var(--box-shadow);
+		--cor-bg: var(--cor-bg-dark);
+		--cor-font: var(--font-bg-dark);
+		--cor-tema: var(--cor-2); 
+		--cor-icones-svg: var(--svg-2);
+		--cor-svg-liks: var(--svg-dark);
+		--cor-bordas: var(--cor-bordas-dark);
 
-	--cor-bordas-light: rgba(24, 24, 24,0.3);   
-	--cor-bordas-dark: rgba(223, 223, 217,0.3);    
+		--box-shadow: var(--box-shadow);
 
-    --font-bg-dark: #f2f2f2;
-    --font-bg-ligth: #181818; 	
+		--cor-bordas-light: rgba(24, 24, 24,0.3);   
+		--cor-bordas-dark: rgba(223, 223, 217,0.3);    
 
-    --cor-bg-dark: 24,24,24;
-    --cor-bg-ligth: 223,223,217;
+		--font-bg-dark: #f2f2f2;
+		--font-bg-ligth: #181818; 	
 
-	--cor-1: 118,83,190; 
-	--cor-2: 0,188,105; 
-	--cor-3: 130, 74, 86; 
-	--cor-4: 0,163,237; 
-    
-	--box-shadow: rgba(0, 0, 0, 0.5) 5px 10px 10px -5px;
+		--cor-bg-dark: 24,24,24;
+		--cor-bg-ligth: 223,223,217;
 
-	--tremer: tremer 0.82s cubic-bezier(.36,.07,.19,.97) both;
+		--cor-1: 118,83,190; 
+		--cor-2: 0,188,105; 
+		--cor-3: 130, 74, 86; 
+		--cor-4: 0,163,237; 
 
---svg-dark: invert(99%) sepia(11%) saturate(109%) hue-rotate(215deg) brightness(112%) contrast(90%);
---svg-ligth: invert(0%) sepia(13%) saturate(254%) hue-rotate(316deg) brightness(88%) contrast(81%);
+		--box-shadow: rgba(0, 0, 0, 0.5) 5px 10px 10px -5px;
 
---svg-1: invert(40%) sepia(56%) saturate(1086%) hue-rotate(226deg) brightness(79%) contrast(86%);
---svg-2: invert(68%) sepia(56%) saturate(5777%) hue-rotate(118deg) brightness(93%) contrast(102%);
---svg-3: invert(31%) sepia(11%) saturate(1742%) hue-rotate(297deg) brightness(101%) contrast(90%);
---svg-4: invert(46%) sepia(16%) saturate(4626%) hue-rotate(167deg) brightness(100%) contrast(105%);
+		--tremer: tremer 0.82s cubic-bezier(.36,.07,.19,.97) both;
+
+		--svg-dark: invert(99%) sepia(11%) saturate(109%) hue-rotate(215deg) brightness(112%) contrast(90%);
+		--svg-ligth: invert(0%) sepia(13%) saturate(254%) hue-rotate(316deg) brightness(88%) contrast(81%);
+
+		--svg-1: invert(40%) sepia(56%) saturate(1086%) hue-rotate(226deg) brightness(79%) contrast(86%);
+		--svg-2: invert(68%) sepia(56%) saturate(5777%) hue-rotate(118deg) brightness(93%) contrast(102%);
+		--svg-3: invert(31%) sepia(11%) saturate(1742%) hue-rotate(297deg) brightness(101%) contrast(90%);
+		--svg-4: invert(46%) sepia(16%) saturate(4626%) hue-rotate(167deg) brightness(100%) contrast(105%);
 
 }
 /*ANIMACAO TREMER*/
@@ -147,7 +148,6 @@ body {
 	filter: var(--cor-icones-svg);
 	margin: 1.5em;
 }
-
 .div-contato a:hover {	
 	animation: var(--tremer); 	
 } 
@@ -166,7 +166,7 @@ body {
 	left: 0;
 	top: 20px;
 	left: 1em;
-	width: 320px;
+	width: 280px;
 	height: 500px;
 	min-height: 500px;
 	z-index: 1;
@@ -237,7 +237,7 @@ body {
 .modal-config-container {
 	position: absolute;
 	top: 20px;
-	right: 1em;
+	right: 20px;
 	left: auto;
 	height: 250px;
 	min-height: 250px;
@@ -317,7 +317,6 @@ body {
 /*------------------------------------------------------------------------------------------------------*/
 /*CONTAINER*/
 .flex-container {
-	margin: 0 auto;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -333,7 +332,7 @@ body {
 }
 
 .section-title {
-	width: 100%;
+	width: 80%;
 	padding: 100px 0 30px 30px;
 	font-family: 'Orbitron', sans-serif;
 	color: rgb(var(--cor-tema));
@@ -358,33 +357,30 @@ body {
 .sobre-mim-code-container,
 .sobre-mim-texto-container {
 	margin-inline: 30px;
-	margin: 100px 30px 30px 30px;
 	min-width: 320px;
 	width: 100%;
 	display: flex;
 	flex: 1;
-
 }
 .code {
+	white-space: pre-wrap;
 	font-size: clamp(1.5rem, 2.5vw, 2rem); 
-	/*font-size: 1.5em;*/
-	color: rgba(var(--cor-tema),1);
-}
-.code p {
-	color: rgba(var(--cor-tema),1);
-	height: 450px;
+	color: var(--cor-font);
+	min-height: 400px;
+	min-width: 320px;
 }
 
 .sobre-mim-texto-container {
+	margin-top: 120px;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 50px;
 }
 .sobre-mim-code-container {
-	margin-top: 0;
 	justify-content: flex-start;
 	align-items: flex-start;
-	min-height: initial;
-	height: 450px;
+	height: 400px;
+	margin-bottom: 10px;
 }
 
 .card-container {
@@ -400,19 +396,19 @@ body {
 	font-size: 1.35em;
 	color: var(--cor-font);
 	padding: 1.5em;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 }
 .card-sobre-mim {
-	margin-top: -30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
 .img-sobre-mim {
+	margin-top: -50px;
 	width: 200px;
 	filter: brightness(.8) contrast(1.2);
-	margin-bottom: .5em;
+	margin-bottom: .85em;
 }
 
 /*------------------------------------------------------------------------------------------------------*/
@@ -422,7 +418,7 @@ body {
 /*SECTION SKILLS HOBBIES*/
 .soft-skills {
 	background-color: rgb(var(--cor-bg));
-	min-height: 550px;
+	/*min-height: 550px;*/
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -432,17 +428,13 @@ body {
 .skill-container {	
 	margin-inline: 5px;
 	min-width: 320px;
-	min-height: 550px;
 	width: 100%;	
 	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
 	flex: 1;
 	/*border: 1px solid var(--cor-bordas);*/
 	flex-wrap: wrap;
-}
-
-.skill-container {
-	justify-content: space-evenly;
-	align-content: center;
 }
 
 .skill-box {
@@ -538,12 +530,19 @@ body {
 /*----------------------------------------------------------------------*/
 /* DESKTOP  */
 @media only screen and (min-width: 769px) {
+	.logo-svg {
+		display: none;
+	}
+
 
 }
 /*----------------------------------------------------------------------*/
 /* TABLET */
 /*----------------------------------------------------------------------*/
 @media only screen and (min-width: 481px) and (max-width:768px) {
+	.logo-svg {
+		display: none;
+	}
 	.navbar {
 		justify-content: space-between;
 	}
@@ -578,5 +577,9 @@ body {
 	.nav-ul-container {
 		display: flex;
 	}
+	.sobre-mim-code-container {
+	justify-content: center;
+	align-items: center;
+  }
 
 }

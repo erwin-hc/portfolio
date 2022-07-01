@@ -28,12 +28,12 @@ function mudaCor() {
   var corSvgIcones = getComputedStyle(document.documentElement).getPropertyValue('--cor-icones-svg'); 
   var fontColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-font'); 
   var corTema = getComputedStyle(document.documentElement).getPropertyValue('--cor-tema'); 
+
   
   if (window.pageYOffset > 0) {
 
     iconeLogo.style.filter = `${corSvgLinks}`;
     iconeConfig.style.filter = `${corSvgLinks}`;
-    iconeDark.style.filter = `${corSvgLinks}`;
 
     navLinks.forEach(function (index) {
       index.style.color = `${fontColor}`;
@@ -45,7 +45,6 @@ function mudaCor() {
   } else {
     iconeLogo.style.filter = `${corSvgIcones}`;
     iconeConfig.style.filter = `${corSvgIcones}`;
-    iconeDark.style.filter = `${corSvgIcones}`;
 
     navbar.style.backgroundColor = `rgba(${navBg},1)`;
     navbar.style.boxShadow = `${shadow}`;
@@ -55,8 +54,6 @@ function mudaCor() {
     })
   }
 
-
-
 }
 /*-------------------------------------------------------------------------------------------------*/
 // DARK-MODE
@@ -65,7 +62,6 @@ iconeDark.addEventListener('click', function () {
   var textDarkLight = document.querySelector('.textoDarkLight');
 
   if (body.classList.contains('dark')) {
-
     document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-dark`);
     document.documentElement.style.setProperty('--cor-font', `var(--font-bg-dark)`);
     document.documentElement.style.setProperty('--cor-svg-liks', `var(--svg-dark)`);
@@ -76,8 +72,7 @@ iconeDark.addEventListener('click', function () {
     document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-ligth`);
     document.documentElement.style.setProperty('--cor-font', `var(--font-bg-ligth)`);
     document.documentElement.style.setProperty('--cor-svg-liks', `var(--svg-ligth)`);
-    document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-light)`);
-   
+    document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-light)`);   
     textDarkLight.innerHTML = `<span>dark-</span>mode`;
     iconeDark.src="assets/dark-mode.svg"
   }
@@ -192,25 +187,28 @@ var code = document.querySelector('.code');
 
 var typewriter = new Typewriter(code, {
   loop: true,
-  delay: 40,
+  delay: 50,
   deleteSpeed: 0,
-  skipAddStyles: false,
+  // skipAddStyles: false,
 });
 
 typewriter
-  // .pauseFor(300)
-  .typeString("<span style='color:#be8ee4'>var </span><span style='color:var(--cor-font)'>estudante  = {</span><span style='color:rgba(var(--cor-tema),1)'>\
-  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>nome:</span> 'Erwin Stein',\
-  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>objetivo:</span> 'Web Designer',\
-  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>localização:</span> 'Terra :-)',\
-  <br>&emsp;&emsp;<span style='color:var(--cor-font)'>cursando: [</span>\
-  <br>&emsp;&emsp;&emsp;'Javascript',\
-  <br>&emsp;&emsp;&emsp;'HTML'\
-  <br>&emsp;&emsp;&emsp;'CSS'\
-  <br>&emsp;&emsp;&emsp;'Análise e <br>&emsp;&emsp;&emsp;Desenvolvimento <br>&emsp;&emsp;&emsp;de Sistemas'\
-  <span style='color:var(--cor-font)'>]<br>&emsp;&emsp;};</span>")
-  .pauseFor(500)
-  .start();
+  .typeString("<span style='color:#be8ee4'>var </span>estudante  = {")
+  .typeString("\n    nome = <span style='color:rgb(var(--cor-tema))'>'Erwin Stein',</span>")
+  .typeString("\n    objetivo = <span style='color:rgb(var(--cor-tema))'>'Web Designer',</span>")
+  .typeString("\n    localização = <span style='color:rgb(var(--cor-tema))'>'Terra :-D',</span>")
+  .typeString("\n    cursando [")
+  .typeString("\n       <span style='color:rgb(var(--cor-tema))'>'HTML',</span>")
+  .typeString("\n       <span style='color:rgb(var(--cor-tema))'>'CSS',</span>")
+  .typeString("\n       <span style='color:rgb(var(--cor-tema))'>'JAVASCRIPT',</span>")
+  .typeString("\n       <span style='color:rgb(var(--cor-tema))'>'Análise e</span>")
+  .typeString("\n       <span style='color:rgb(var(--cor-tema))'>Desenvolvimento</span>")
+  .typeString("\n       <span style='color:rgb(var(--cor-tema))'>de Sistemas',</span>")
+  .typeString("\n    ]")
+  .typeString("\n};  ")
+  .pauseFor(5000)
+  .start(); 
+
 
 
 /*-------------------------------------------------------------------------------------------------*/
