@@ -39,7 +39,7 @@ function mudaCor() {
       index.style.color = `${fontColor}`;
     })
     
-    navbar.style.backgroundColor = `rgba(${navBg},0.8)`;
+    navbar.style.backgroundColor = `rgba(${navBg},0.5)`;
     navbar.style.boxShadow = "none";
 
   } else {
@@ -194,10 +194,10 @@ var typewriter = new Typewriter(code, {
 
 typewriter
   .typeString("<span style='color:#be8ee4'>var </span>estudante  = {")
-  .typeString("\n    nome = <span style='color:rgb(var(--cor-tema))'>'Erwin Stein',</span>")
-  .typeString("\n    objetivo = <span style='color:rgb(var(--cor-tema))'>'Web Designer',</span>")
-  .typeString("\n    localização = <span style='color:rgb(var(--cor-tema))'>'Terra :-D',</span>")
-  .typeString("\n    cursando [")
+  .typeString("\n    nome: <span style='color:rgb(var(--cor-tema))'>'Erwin Stein',</span>")
+  .typeString("\n    objetivo: <span style='color:rgb(var(--cor-tema))'>'Web Designer',</span>")
+  .typeString("\n    localização: <span style='color:rgb(var(--cor-tema))'>'Terra :-D',</span>")
+  .typeString("\n    cursando: [")
   .typeString("\n       <span style='color:rgb(var(--cor-tema))'>'HTML',</span>")
   .typeString("\n       <span style='color:rgb(var(--cor-tema))'>'CSS',</span>")
   .typeString("\n       <span style='color:rgb(var(--cor-tema))'>'JAVASCRIPT',</span>")

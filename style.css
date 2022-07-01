@@ -22,6 +22,7 @@
 body {
 		width: 100vw;
 	  min-height: 100vh;
+	  overflow-x: hidden;
 }
 
 /*VARIAVEIS*/
@@ -167,14 +168,18 @@ body {
 	top: 20px;
 	left: 1em;
 	width: 280px;
-	height: 500px;
-	min-height: 500px;
+	height: 550px;
+	min-height: 550px;
 	z-index: 1;
 	background-color: rgba(var(--cor-bg),1);
 	border: 1px solid var(--cor-bordas);
 	box-shadow: var(--box-shadow);    
 	overflow: hidden;
 	overflow-y: scroll;
+}
+.imagem-perfil {
+	width: 150px;
+
 }
 .modal-links {	
 	height: 100%;
@@ -209,7 +214,7 @@ body {
 }
 .ul-item:hover {
   	animation: var(--tremer);
-	background: rgba( var(--cor-tema),0.2);
+		background: rgba( var(--cor-tema),0.2);
 }
 .ul-item {
 	margin-left: -10px;
@@ -384,7 +389,7 @@ body {
 }
 
 .card-container {
-	max-width: 400px;
+	max-width: 450px;
 	/*border: thin solid var(--cor-bordas);*/
 	display: flex;
 	justify-content: center;
@@ -404,11 +409,35 @@ body {
 	align-items: center;
 	flex-direction: column;
 }
-.img-sobre-mim {
+/*.img-sobre-mim {
 	margin-top: -50px;
 	width: 200px;
 	filter: brightness(.8) contrast(1.2);
 	margin-bottom: .85em;
+}*/
+.card-container svg {
+	margin-top: -50px;
+	width: 225px;
+	overflow: visible;
+	filter: brightness(.8) contrast(1.2);
+	margin-bottom: 1.5em;
+}
+
+#CABECA {
+	animation: balanca 1s ease-in-out infinite;
+	
+}
+@keyframes balanca {
+  10%, 90% {
+  	transform: translateX(-2px);
+  }  
+  20%, 80% {
+  	transform: translateX(2px);
+    transform: translateY(5px);
+  }
+  40%, 60% {
+    transform: translateX(4px);
+  }
 }
 
 /*------------------------------------------------------------------------------------------------------*/
@@ -530,9 +559,9 @@ body {
 /*----------------------------------------------------------------------*/
 /* DESKTOP  */
 @media only screen and (min-width: 769px) {
-	.logo-svg {
+/*	.logo-svg {
 		display: none;
-	}
+	}*/
 
 
 }
@@ -540,9 +569,9 @@ body {
 /* TABLET */
 /*----------------------------------------------------------------------*/
 @media only screen and (min-width: 481px) and (max-width:768px) {
-	.logo-svg {
+/*	.logo-svg {
 		display: none;
-	}
+	}*/
 	.navbar {
 		justify-content: space-between;
 	}
@@ -583,3 +612,6 @@ body {
   }
 
 }
+
+
+
