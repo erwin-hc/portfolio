@@ -6,7 +6,6 @@ var seletorCores = document.querySelector('.cores-container');
 var navbar = document.querySelector(".navbar");
 var navLinks = document.querySelectorAll('.nav-ul-item');
 var navBg = getComputedStyle(document.documentElement).getPropertyValue('--cor-bg-dark'); 
-
 var iconeDark = document.querySelector('.dark-svg');
 var iconeLogo = document.querySelector('.logo-svg');
 var iconeConfig = document.querySelector('.conf-svg');
@@ -23,21 +22,18 @@ window.onscroll = function() {
 } 
 /*-------------------------------------------------------------------------------------------------*/
 // MUDA COR
-
 function mudaCor() {
   var shadow = getComputedStyle(document.documentElement).getPropertyValue('--box-shadow'); 
   var corSvgLinks = getComputedStyle(document.documentElement).getPropertyValue('--cor-svg-liks'); 
   var corSvgIcones = getComputedStyle(document.documentElement).getPropertyValue('--cor-icones-svg'); 
   var fontColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-font'); 
   var corTema = getComputedStyle(document.documentElement).getPropertyValue('--cor-tema'); 
-  gaugeJs.options.pointer.color = `rgb(${corTema})`;
-  gaugeJs.setOptions();
   
   if (window.pageYOffset > 0) {
 
     iconeLogo.style.filter = `${corSvgLinks}`;
     iconeConfig.style.filter = `${corSvgLinks}`;
-    // iconeDark.style.filter = `${corSvgLinks}`;
+    iconeDark.style.filter = `${corSvgLinks}`;
 
     navLinks.forEach(function (index) {
       index.style.color = `${fontColor}`;
@@ -68,7 +64,6 @@ iconeDark.addEventListener('click', function () {
   body.classList.toggle('dark');
   var textDarkLight = document.querySelector('.textoDarkLight');
 
-
   if (body.classList.contains('dark')) {
 
     document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-dark`);
@@ -89,9 +84,7 @@ iconeDark.addEventListener('click', function () {
   mudaCor();
   fechaModalConfig();
 
-  // document.documentElement.style.setProperty('--cor-tema', `var(--cor-${i})`);
 
-  // body...
 })
 /*-------------------------------------------------------------------------------------------------*/
 // TRAVA SCROLLBAR
@@ -200,8 +193,8 @@ var code = document.querySelector('.code');
 var typewriter = new Typewriter(code, {
   loop: true,
   delay: 40,
-  deleteSpeed: 40,
-  skipAddStyles: true,
+  deleteSpeed: 0,
+  skipAddStyles: false,
 });
 
 typewriter
@@ -243,51 +236,89 @@ typewriter
 /*-------------------------------------------------------------------------------------------------*/
 
 var corTema = getComputedStyle(document.documentElement).getPropertyValue('--cor-tema'); 
-var canvasJs = document.querySelector('.canvas-js'); // your canvas element
-var canvasCss = document.querySelector('.canvas-css'); // your canvas element
-var skillJs = document.querySelector('.skill-js');
+var skillBox = document.querySelectorAll('.skill-box');
+var canvasJs = document.querySelector('.canvas-js'); 
+var canvasCss = document.querySelector('.canvas-css'); 
+var canvasHtml = document.querySelector('.canvas-html'); 
+var canvasSql = document.querySelector('.canvas-sql'); 
+var canvasPython = document.querySelector('.canvas-python'); 
+var canvasJava = document.querySelector('.canvas-java'); 
 
-var gauGeopts = {
-  lines: 10,
+
+var gaugeOpts = {
+  lines: 20,
   angle: 0.025,
   lineWidth: 0.2,
   pointer: {
-    length: 0.5,
-    strokeWidth: 0.03,
-    color: `rgb(${corTema})`
+    length: 0.65,
+    strokeWidth: 0.06,
+    color: '#0066FF'
   },
   limitMax: 'false', 
+  limitMin: 'false',
   percentColors: [[0.0, "#ed2960" ], [0.50, "#ddee2c"], [1.0, "#00bc69"]], // !!!!
   strokeColor: '#BCBCBC',
   generateGradient: true,
-  gradientType: 0,
-  highDpiSupport: true,
 };
 
 // GAUGE SKILL JS
-var gaugeJs = new Gauge(canvasJs).setOptions(gauGeopts);
-  gaugeJs.maxValue = 3000;
-  gaugeJs.animationSpeed = 45;
-  gaugeJs.set(350);
-  gaugeJs.setMinValue(0);
-
+var gaugeJs = new Gauge(canvasJs).setOptions(gaugeOpts);
+  gaugeJs.maxValue = 100;
+  gaugeJs.animationSpeed = 32;
+  gaugeJs.set(21);
 // GAUGE SKILL CSS
-var gaugeCss = new Gauge(canvasCss).setOptions(gauGeopts);
-  gaugeCss.maxValue = 3000;
-  gaugeCss.animationSpeed = 45;
-  gaugeCss.set(550);
-  gaugeCss.setMinValue(0);
+var gaugeCss = new Gauge(canvasCss).setOptions(gaugeOpts);
+  gaugeCss.maxValue = 100;
+  gaugeCss.animationSpeed = 32;
+  gaugeCss.set(27);
+// GAUGE SKILL HTML
+var gaugeHtml = new Gauge(canvasHtml).setOptions(gaugeOpts);
+  gaugeHtml.maxValue = 100;
+  gaugeHtml.animationSpeed = 32;
+  gaugeHtml.set(38);
+// GAUGE SKILL JAVA
+var gaugeJava = new Gauge(canvasJava).setOptions(gaugeOpts);
+  gaugeJava.maxValue = 100;
+  gaugeJava.animationSpeed = 32;
+  gaugeJava.set(3);
+// GAUGE SKILL PYTHON
+var gaugePython = new Gauge(canvasPython).setOptions(gaugeOpts);
+  gaugePython.maxValue = 100;
+  gaugePython.animationSpeed = 32;
+  gaugePython.set(5);
+// GAUGE SKILL SQL
+var gaugeSql = new Gauge(canvasSql).setOptions(gaugeOpts);
+  gaugeSql.maxValue = 100;
+  gaugeSql.animationSpeed = 32;
+  gaugeSql.set(4);
 
-skillJs.addEventListener("mouseover", function () {
-  // gaugeJs.options.pointer.color = `rgb(${corTema})`;
-  gaugeJs.setOptions();
-  gaugeJs.set(3000);
-  console.log(corTema)
-})
-skillJs.addEventListener("mouseout", function () {
-  gaugeJs.setOptions();
-  gaugeJs.set(250);
+
+
+skillBox.forEach(function (box) {
+  box.addEventListener('mouseover', function () {
+    animacaoMedidor();
+  })
+
 
 })
+
+function animacaoMedidor() {
+    gaugeJs.set(100);
+    gaugeCss.set(100);
+    gaugeHtml.set(100);
+    gaugeSql.set(100);
+    gaugePython.set(100);
+    gaugeJava.set(100);
+
+    setTimeout(function () {
+     gaugeJs.set(21);
+     gaugeCss.set(27);
+     gaugeHtml.set(38);
+     gaugeSql.set(3);
+     gaugePython.set(5);
+     gaugeJava.set(4);
+    }, 900);
+}
+
 
 
