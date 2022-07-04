@@ -60,6 +60,8 @@ function mudaCor() {
 iconeDark.addEventListener('click', function () {
   body.classList.toggle('dark');
   var textDarkLight = document.querySelector('.textoDarkLight');
+  var imgJogoforca = document.querySelector('.img-jogoforca');
+  var imgDecodificador = document.querySelector('.img-decodificador');
 
   if (body.classList.contains('dark')) {
     document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-dark`);
@@ -67,7 +69,9 @@ iconeDark.addEventListener('click', function () {
     document.documentElement.style.setProperty('--cor-svg-liks', `var(--svg-dark)`);
     document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-dark)`);
     textDarkLight.innerHTML = `<span>light-</span>mode`;
-    iconeDark.src="assets/light-mode.svg"
+    iconeDark.src="assets/light-mode.svg";
+    imgJogoforca.src = "assets/jogodaforca-d.png"
+    imgDecodificador.src = "assets/decodificador-d.png"
   } else {
     document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-ligth`);
     document.documentElement.style.setProperty('--cor-font', `var(--font-bg-ligth)`);
@@ -75,6 +79,8 @@ iconeDark.addEventListener('click', function () {
     document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-light)`);   
     textDarkLight.innerHTML = `<span>dark-</span>mode`;
     iconeDark.src="assets/dark-mode.svg"
+    imgJogoforca.src = "assets/jogodaforca-l.png"
+    imgDecodificador.src = "assets/decodificador-l.png"
   }
   mudaCor();
   fechaModalConfig();
@@ -241,6 +247,7 @@ var canvasHtml = document.querySelector('.canvas-html');
 var canvasSql = document.querySelector('.canvas-sql'); 
 var canvasPython = document.querySelector('.canvas-python'); 
 var canvasJava = document.querySelector('.canvas-java'); 
+var canvasGit = document.querySelector('.canvas-git'); 
 
 
 var gaugeOpts = {
@@ -289,6 +296,11 @@ var gaugeSql = new Gauge(canvasSql).setOptions(gaugeOpts);
   gaugeSql.maxValue = 100;
   gaugeSql.animationSpeed = 32;
   gaugeSql.set(4);
+// GAUGE SKILL GIT
+var gaugeGit = new Gauge(canvasGit).setOptions(gaugeOpts);
+  gaugeGit.maxValue = 100;
+  gaugeGit.animationSpeed = 32;
+  gaugeGit.set(25);
 
 
 
@@ -296,8 +308,6 @@ skillBox.forEach(function (box) {
   box.addEventListener('mouseover', function () {
     animacaoMedidor();
   })
-
-
 })
 
 function animacaoMedidor() {
@@ -307,6 +317,7 @@ function animacaoMedidor() {
     gaugeSql.set(100);
     gaugePython.set(100);
     gaugeJava.set(100);
+    gaugeGit.set(100);
 
     setTimeout(function () {
      gaugeJs.set(21);
@@ -315,6 +326,7 @@ function animacaoMedidor() {
      gaugeSql.set(3);
      gaugePython.set(5);
      gaugeJava.set(4);
+     gaugeGit.set(25);
     }, 900);
 }
 

@@ -42,8 +42,9 @@ body {
 		--font-bg-dark: #f2f2f2;
 		--font-bg-ligth: #181818; 	
 
-		--cor-bg-dark: 24,24,24;
-		--cor-bg-ligth: 223,223,217;
+		--cor-bg-dark: 30,30,30;
+		/*--cor-bg-dark: 27,27,50;*/
+		--cor-bg-ligth: 223,223,223;
 
 		--cor-1: 118,83,190; 
 		--cor-2: 0,188,105; 
@@ -174,6 +175,7 @@ body {
 	background-color: rgba(var(--cor-bg),1);
 	border: 1px solid var(--cor-bordas);
 	box-shadow: var(--box-shadow);    
+	border-radius: 10px;
 	overflow: hidden;
 	overflow-y: scroll;
 }
@@ -250,7 +252,7 @@ body {
 	z-index: 1;
 	background-color: rgba(var(--cor-bg),1);
 	border: 1px solid var(--cor-bordas);
-	border-radius: 15px;
+	border-radius: 10px;
 	box-shadow: var(--box-shadow);    
 	overflow: hidden;
 }
@@ -380,7 +382,7 @@ body {
 	margin-top: 120px;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 50px;
+	margin-bottom: 150px;
 }
 .sobre-mim-code-container {
 	justify-content: flex-start;
@@ -435,10 +437,9 @@ body {
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
-/*SECTION SKILLS HOBBIES*/
+/*SECTION SKILLS */
 .soft-skills {
 	background-color: rgb(var(--cor-bg));
-	/*min-height: 550px;*/
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -458,8 +459,9 @@ body {
 }
 
 .skill-box {
-	width: 180px;
-	max-width: 180px;
+	min-width: 180px;
+	max-width: 28%;
+  width: 28%;
 	border-radius: 10px;
 	/*border: 1px solid var(--cor-bordas);*/
 	display: flex;
@@ -513,29 +515,31 @@ body {
 	justify-content: space-evenly;
 	align-content: center;
 	flex: 1;
-	/*border: 1px solid var(--cor-bordas);*/
 	flex-wrap: wrap;
+	margin-bottom: 50px;
 }
 .formacao-box {
-	min-width: 300px;
+	min-width: 280px;
+	width: 80% ;
 	min-height: 200px;
-	width: 80%;
-
 	border-radius: 10px;
-	/*border: 1px solid var(--cor-bordas);*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: row;
 	box-shadow: var(--box-shadow);
 	background: rgba( var(--cor-tema),0.04);
-	margin: .5em .5em;
+	margin: 2em .5em;
 }
 .img-formacao {
-	width: 75px;
-	height: 75px;
+	align-self: flex-start;
+	width: 100px;
+	max-width: 150px;
+	margin: .5em;
+	margin-top: -30px;
+
 	flex: 1;
-	margin: .25em;
+
 	padding: .25em;
 }
 .texto-formacao-box {
@@ -554,9 +558,10 @@ body {
 	font-size: clamp(1rem, 1.5vw, 1.35rem); 
 	color: rgba(var(--cor-tema),0.8);
 }
-.formacao-box hr {
+.linha {
+	margin: 20px 0;
 	width: 95%;
-	color: rgba(var(--cor-tema),0.6);
+	border-bottom: 1px solid rgba(var(--cor-tema),0.6);
 }
 
 
@@ -568,7 +573,88 @@ body {
 /*SECTION EXPERIENCIAS*/
 .experiencias {
 	background-color: rgb(var(--cor-bg));
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
 }
+.experiencias-container {
+	margin-inline: 0;
+	min-width: 320px;
+	width: 100%;	
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
+	flex: 1;
+	flex-wrap: wrap;
+	margin-bottom: 50px;
+}
+.experiencia-box {
+	min-width: 280px;
+	width: 80% ;
+	min-height: 200px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: var(--box-shadow);
+	background: rgba( var(--cor-tema),0.04);
+	margin: 2em .5em;
+
+}
+.experiencia-box img {
+	/*margin-top: -50px;*/
+	align-self: flex-start;
+	min-width: 280px;
+	width: 100%;
+	/*filter: brightness(9) contrast(1.2);*/
+
+}
+
+.experiencia-box h1 {
+	font-size: clamp(1.25rem, 2.2vw, 1.5rem); 
+	color: rgba(var(--cor-tema),0.8);
+	/*margin: .5em 0.5em;*/
+}
+.experiencia-box p {
+	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	color: var(--cor-font);
+	margin: .5em 0.5em;
+}
+
+.btns {
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+.btns button {
+	columns: var(--cor-font);
+	/*font-family: 'Orbitron', sans-serif;*/
+	font-family: 'Exo 2', sans-serif; 
+	min-width: 150px;
+	height: 40px;
+	border: none;
+	margin: .5em;
+	border-radius: 10px;
+	box-shadow: var(--box-shadow);
+}
+.btns .link {
+	background-color: rgba(var(--cor-tema),0.4);
+}
+.btns .repo {
+	background-color: rgba(var(--cor-tema),0.4);
+}
+
+.btns .repo:hover,
+.btns .link:hover {
+	background-color: rgba(var(--cor-tema),1);
+	animation: var(--tremer);
+
+} 
+
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
