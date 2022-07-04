@@ -369,10 +369,11 @@ body {
 }
 .code {
 	white-space: pre-wrap;
-	font-size: clamp(1.5rem, 2.5vw, 2rem); 
+	font-size: clamp(1.45rem, 2.25vw, 1.75rem); 
 	color: var(--cor-font);
 	min-height: 400px;
 	min-width: 320px;
+	margin-left: 2em;
 }
 
 .sobre-mim-texto-container {
@@ -393,15 +394,17 @@ body {
 	/*border: thin solid var(--cor-bordas);*/
 	display: flex;
 	justify-content: center;
-	box-shadow: var(--box-shadow);
+	/*box-shadow: var(--box-shadow);
 	background: rgba( var(--cor-tema),0.04);
-	border-radius: 10px;
+	border-radius: 10px;*/
 }
 .card-container p {
-	font-size: 1.35em;
+	font-size: clamp(1.35rem, 2.25vw, 1.75rem); 
 	color: var(--cor-font);
-	padding: 1.5em;
-	letter-spacing: 1px;
+	padding: .5em;
+	letter-spacing: 2px;
+	text-align: justify;
+  text-justify: inter-word;
 }
 .card-sobre-mim {
 	display: flex;
@@ -424,20 +427,8 @@ body {
 }
 
 #CABECA {
-	animation: balanca 1s ease-in-out infinite;
-	
-}
-@keyframes balanca {
-  10%, 90% {
-  	transform: translateX(-2px);
-  }  
-  20%, 80% {
-  	transform: translateX(2px);
-    transform: translateY(5px);
-  }
-  40%, 60% {
-    transform: translateX(4px);
-  }
+	animation: tremer 1s infinite;
+	transition: all 1s ease-in-out;	
 }
 
 /*------------------------------------------------------------------------------------------------------*/
@@ -488,23 +479,16 @@ body {
 }
 .skill-box span {
 	color: rgb(var(--cor-tema));
-
 }
 
 .canvas-box {
-
 	width: 180px;
-
-
 }
 
 .img-skill {
 	padding: .5em;
 	margin-top: -30px;
 	width: 125px;
-
-
-	/*background-color: red;*/
 }
 
 /*------------------------------------------------------------------------------------------------------*/
@@ -514,7 +498,69 @@ body {
 /*SECTION FORMACAO*/
 .formacao {
 	background-color: rgb(var(--cor-bg));
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
 }
+
+.formacao-container {
+	margin-inline: 0;
+	min-width: 320px;
+	width: 100%;	
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
+	flex: 1;
+	/*border: 1px solid var(--cor-bordas);*/
+	flex-wrap: wrap;
+}
+.formacao-box {
+	min-width: 300px;
+	min-height: 200px;
+	width: 80%;
+
+	border-radius: 10px;
+	/*border: 1px solid var(--cor-bordas);*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	box-shadow: var(--box-shadow);
+	background: rgba( var(--cor-tema),0.04);
+	margin: .5em .5em;
+}
+.img-formacao {
+	width: 75px;
+	height: 75px;
+	flex: 1;
+	margin: .25em;
+	padding: .25em;
+}
+.texto-formacao-box {
+	padding: .5em;
+	flex: 4;
+}
+.formacao-box h1 {
+	font-size: clamp(1.25rem, 2.2vw, 1.5rem); 
+	color: rgba(var(--cor-tema),0.8);
+}
+.formacao-box h3 {
+	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+		color: var(--cor-font);
+}
+.formacao-box a {
+	font-size: clamp(1rem, 1.5vw, 1.35rem); 
+	color: rgba(var(--cor-tema),0.8);
+}
+.formacao-box hr {
+	width: 95%;
+	color: rgba(var(--cor-tema),0.6);
+}
+
+
+
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
