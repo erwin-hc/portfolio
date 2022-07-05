@@ -460,7 +460,7 @@ body {
 
 .skill-box {
 	min-width: 180px;
-	max-width: 28%;
+	max-width: 300px;
   width: 28%;
 	border-radius: 10px;
 	/*border: 1px solid var(--cor-bordas);*/
@@ -520,7 +520,8 @@ body {
 }
 .formacao-box {
 	min-width: 280px;
-	width: 80% ;
+	width: 95%;
+	max-width: 800px;
 	min-height: 200px;
 	border-radius: 10px;
 	display: flex;
@@ -531,23 +532,26 @@ body {
 	background: rgba( var(--cor-tema),0.04);
 	margin: 2em .5em;
 }
-.img-formacao {
-	align-self: flex-start;
-	width: 100px;
-	max-width: 150px;
-	margin: .5em;
-	margin-top: -30px;
-
+.imgs-formacao {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
 	flex: 1;
+	width: 100%;
+	flex-wrap: wrap;
+}
 
-	padding: .25em;
+.img-formacao {
+	max-width: 85px;
+	margin: 1em;
 }
 .texto-formacao-box {
-	padding: .5em;
+	padding: .25em;
 	flex: 4;
 }
 .formacao-box h1 {
-	font-size: clamp(1.25rem, 2.2vw, 1.5rem); 
+	font-size: clamp(1.05rem, 2.2vw, 1.5rem); 
 	color: rgba(var(--cor-tema),0.8);
 }
 .formacao-box h3 {
