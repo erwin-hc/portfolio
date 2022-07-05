@@ -332,3 +332,33 @@ function animacaoMedidor() {
 
 
 
+// ENVIO EMAIL GMAIL
+function sendEmail() {
+  Email.send({
+    Host: "smtp.gmail.com",
+    Username : "erwin.stein@gmail.com",
+    Password : "wiczoxmbpweqtryp",
+    To : "erwin.stein@gmail.com",
+    From : "erwin.stein@gmail.com",
+    Subject : "Contato Portfólio",
+    Body : "Teste Envio de Email",
+  })
+  .then(function(message){
+    alert("mail sent successfully")
+  });
+}
+
+// <!DOCTYPE html>
+// <html>
+// <head>
+//   <title></title>
+//   <script src="https://smtpjs.com/v3/smtp.js"></script>  
+
+//   </script>
+// </head>
+// <body>  
+//   <form method="post">
+//     <input type="button" value="Send Email" onclick="sendEmail()"/>
+//   </form>  
+// </body>
+// </html>

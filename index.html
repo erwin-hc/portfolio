@@ -23,7 +23,7 @@
 					<a href="#sobre"><li class="nav-ul-item">Sobre-Mim</li></a>
 					<a href="#skills"><li class="nav-ul-item">Skills</li></a>
 					<a href="#formacao"><li class="nav-ul-item">Formação</li></a>
-					<a href="#experiencias"><li class="nav-ul-item">Portifólio</li></a>
+					<a href="#experiencias"><li class="nav-ul-item">Portfólio</li></a>
 					<a href="#contato"><li class="nav-ul-item">Contato</li></a>
 				</ul>
 			<!-- icone configuracao -->			
@@ -245,7 +245,7 @@
 			<!-- <div class="linha"></div> -->
 			<br>
 			<a href="https://estacio.br/cursos/graduacao/analise-e-desenvolvimento-de-sistemas" target="_blank">
-			Link
+			estacio.com.br
 			</a>
 			<div class="linha"></div>
 			</div>
@@ -264,7 +264,7 @@
 			<h3>Previsão 2022/2023</h3>
 			<br>
 			<a href="https://cursos.alura.com.br/user/erwin-stein" target="_blank">
-			Link
+			alura.com.br
 			</a>
 			<div class="linha"></div>
 			</div>
@@ -282,7 +282,7 @@
 			<h3>Em andamento</h3>
 			<br>
 			<a href="https://www.freecodecamp.org/erwin_hc" target="_blank">
-			Link
+			freecodecamp.org
 			</a>
 			<div class="linha"></div>
 			</div>
@@ -300,7 +300,7 @@
 			<h3>Em andamento</h3>
 			<br>
 			<a href="https://courses.wesbos.com/account" target="_blank">
-			Link
+			wesbos.com
 			</a>
 			<div class="linha"></div>
 			</div>
@@ -318,7 +318,7 @@
 			<h3>Em andamento</h3>
 			<br>
 			<a href="https://www.theodinproject.com/" target="_blank">
-			Link
+			theodinproject.com
 			</a>
 			<div class="linha"></div>
 			</div>
@@ -366,6 +366,11 @@
 <!-- sectio contato --------------------------------------------------------------------------------->
 <section id="contato" class="contato section-container">
 	<h1 class="section-title">Contato</h1>
+	<div class="contato-container">
+			<form method="post">
+			<input type="button" value="Send Email" onclick="sendEmail()"/>
+			</form>  
+	</div>
 </section>	
 </div> <!-- fim flex container -->	
 
@@ -388,11 +393,11 @@
 			<a href="#sobre"><li class="ul-item"><img class="icon-svg-link"src="assets/sobre-mim.svg">Sobre-Mim</li></a>
 			<a href="#skills"><li class="ul-item"><img class="icon-svg-link"src="assets/soft-skills.svg">Skills</li></a>
 			<a href="#formacao"><li class="ul-item"><img class="icon-svg-link"src="assets/formacaoMenu.svg">Formação</li></a>
-			<a href="#experiencias"><li class="ul-item"><img class="icon-svg-link"src="assets/portifolio.svg">Portifólio</li></a>
+			<a href="#experiencias"><li class="ul-item"><img class="icon-svg-link"src="assets/portifolio.svg">Portfólio</li></a>
 			<a href="#contato"><li class="ul-item"><img class="icon-svg-link"src="assets/contato.svg">Contato</li></a>
 		</ul>
 		<div class="div-contato">
-			<a href="mailto:erwin.stein@gmail.com?subject=[Portifólio] Erwin Stein" target="_blank"><img class="icon-svg-contato" 
+			<a href="mailto:erwin.stein@gmail.com?subject=[Portfólio] Erwin Stein" target="_blank"><img class="icon-svg-contato" 
 			src="assets/email.svg"></a>
 			<a href="https://www.linkedin.com/in/erwin-guilherme-stein"target="_blank"><img class="icon-svg-contato"
 			src="assets/linkedin.svg"></a>
@@ -434,6 +439,8 @@
 <!-- gaugeJs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.7/gauge.min.js"></script>
 <!---------------------------------------------------->
+<!-- smtpjs -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 <!-- script local -->
 <script src="script.js"></script>	
 <!---------------------------------------------------->

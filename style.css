@@ -519,8 +519,7 @@ body {
 	margin-bottom: 50px;
 }
 .formacao-box {
-	min-width: 280px;
-	width: 95%;
+	width: 90%;
 	max-width: 800px;
 	min-height: 200px;
 	border-radius: 10px;
@@ -552,15 +551,15 @@ body {
 }
 .formacao-box h1 {
 	font-size: clamp(1.05rem, 2.2vw, 1.5rem); 
-	color: rgba(var(--cor-tema),0.8);
+	color: rgba(var(--cor-tema),0.9);
 }
 .formacao-box h3 {
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+		font-size: clamp(1.0rem, 2vw, 1.25rem); 
 		color: var(--cor-font);
 }
 .formacao-box a {
 	font-size: clamp(1rem, 1.5vw, 1.35rem); 
-	color: rgba(var(--cor-tema),0.8);
+	color: rgba(var(--cor-tema),0.9);
 }
 .linha {
 	margin: 20px 0;
@@ -595,8 +594,8 @@ body {
 	margin-bottom: 50px;
 }
 .experiencia-box {
-	min-width: 280px;
-	width: 80% ;
+	width: 90%;
+	max-width: 800px;
 	min-height: 200px;
 	border-radius: 10px;
 	display: flex;
@@ -638,7 +637,7 @@ body {
 	columns: var(--cor-font);
 	/*font-family: 'Orbitron', sans-serif;*/
 	font-family: 'Exo 2', sans-serif; 
-	min-width: 150px;
+	min-width: 100px;
 	height: 40px;
 	border: none;
 	margin: .5em;
@@ -666,6 +665,23 @@ body {
 /*SECTION CONTATO*/
 .contato {
 	background-color: rgb(var(--cor-bg));
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+.contato-container {
+	margin-inline: 0;
+	min-width: 320px;
+	width: 100%;	
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
+	flex: 1;
+	flex-wrap: wrap;
+	margin-bottom: 50px;
+	border: 2px solid red;
 }
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
