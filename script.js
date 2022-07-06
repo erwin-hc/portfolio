@@ -1,3 +1,4 @@
+
 // SELETORES E VARIAVEIS
 var body = document.querySelector('body');
 var modalConfig = document.querySelector('.modal-config-container');
@@ -14,6 +15,22 @@ var ulLinks = document.querySelector('.ul-container');
 var navUlLinks = document.querySelector('.nav-ul-container');
 var divContato = document.querySelector('.div-contato');
 
+/*-------------------------------------------------------------------------------------------------*/
+// FAVICON
+const setFavicon = (emoji) => {
+    const canvas = document.createElement('canvas');
+    canvas.height = 24;
+    canvas.width = 24;
+  
+    const ctx = canvas.getContext('2d');
+    ctx.font = '28px serif';
+    ctx.fillText(emoji, -2, 24);
+  
+    const favicon = document.querySelector('link[rel=icon]');
+    if (favicon) { favicon.href = canvas.toDataURL(); }
+  }
+  // Japanese Symbol for Beginner
+  setFavicon('🔰');
 
 /*-------------------------------------------------------------------------------------------------*/
 // ESCONDE/MOSTRA NAVBAR/MODALS SCROLL
@@ -333,32 +350,98 @@ function animacaoMedidor() {
 
 
 // ENVIO EMAIL GMAIL
-function sendEmail() {
-  Email.send({
-    Host: "smtp.gmail.com",
-    Username : "erwin.stein@gmail.com",
-    Password : "wiczoxmbpweqtryp",
-    To : "erwin.stein@gmail.com",
-    From : "erwin.stein@gmail.com",
-    Subject : "Contato Portfólio",
-    Body : "Teste Envio de Email",
-  })
-  .then(function(message){
-    alert("mail sent successfully")
-  });
+(function(){
+  emailjs.init("wwUibZ_fqYl6et2kg");
+})();
+
+const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'ENVIANDO';
+
+   // const serviceID = 'service_frpwugc';
+   // const templateID = 'template_fkbo3x6';
+
+   // emailjs.sendForm(serviceID, templateID, this)
+   //  .then(() => {
+   //    btn.value = 'Enviar';
+   //    alert('Sent!');
+   //  }, (err) => {
+   //    btn.value = 'Enivar';
+   //    alert(JSON.stringify(err));
+   //  });
+   this.reset();
+});
+
+
+// INPUTS VERDES
+var inputNome = document.querySelector('.input-nome');
+var inputFrom = document.querySelector('.input-from');
+var inputTexto = document.querySelector('.input-texto');
+
+function OK() {
+      inputNome.style.backgroundColor = "#00B74A10";
+      inputTexto.style.backgroundColor = "#00B74A10";
+      inputFrom.style.backgroundColor = "#00B74A10";
+      inputNome.style.border = "1px solid #00B74A";
+      inputTexto.style.border = "1px solid #00B74A";
+      inputFrom.style.border = "1px solid #00B74A";
+
+      window.setTimeout(function() {
+        inputNome.style.backgroundColor = "rgba(var(--cor-bg),1)";
+        inputTexto.style.backgroundColor = "rgba(var(--cor-bg),1)";
+        inputFrom.style.backgroundColor = "rgba(var(--cor-bg),1)";
+        inputNome.style.border = "1px solid var(--cor-bordas)";
+        inputTexto.style.border = "1px solid var(--cor-bordas)";        
+        inputFrom.style.border = "1px solid var(--cor-bordas)";        
+      }, 700);
+
+      document.getElementById('form').reset();
 }
 
-// <!DOCTYPE html>
-// <html>
-// <head>
-//   <title></title>
-//   <script src="https://smtpjs.com/v3/smtp.js"></script>  
+// SALVAR ON CLICK 
+var btnEnviar = document.querySelector('.btn-enviar');
+btnEnviar.addEventListener('click',function (e) {
+        e.preventDefault();
 
-//   </script>
-// </head>
-// <body>  
-//   <form method="post">
-//     <input type="button" value="Send Email" onclick="sendEmail()"/>
-//   </form>  
-// </body>
-// </html>
+        if (inputNome.value === ''){
+        inputNome.focus();
+        inputNome.style.border ="1px solid #F93154";
+        inputNome.style.backgroundColor ="#F9315410";
+        window.setTimeout(function() { 
+        inputNome.style.border = "1px solid var(--cor-bordas)"; 
+        inputNome.style.backgroundColor ="rgba(var(--cor-bg),1)";
+        }, 1000);
+        return;
+        }
+
+        if (inputFrom.value === ''){
+        inputFrom.focus();
+        inputFrom.style.border ="1px solid #F93154";
+        inputFrom.style.backgroundColor ="#F9315410";
+        window.setTimeout(function() { 
+        inputFrom.style.border = "1px solid var(--cor-bordas)"; 
+        inputFrom.style.backgroundColor ="rgba(var(--cor-bg),1)";
+        }, 1000);
+        return;
+        }
+
+        if (inputTexto.value === ''){
+        inputTexto.focus();
+        inputTexto.style.border ="1px solid #F93154";
+        inputTexto.style.backgroundColor ="#F9315410";
+        window.setTimeout(function() { 
+        inputTexto.style.border = "1px solid var(--cor-bordas)"; 
+        inputTexto.style.backgroundColor ="rgba(var(--cor-bg),1)";
+        }, 1000);
+        return;
+        }
+
+        OK();
+        inputNome.focus();
+
+});
+

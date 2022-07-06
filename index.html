@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Erwin Guilherme Stein</title>
+	<title>Erwin Stein</title>
 
 	<!-- STYLE -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<!-- script -->
-	
+	 <link rel="icon" type="image/png" href="favicon.ico"/>
+
 </head>
 <body class="dark">
 <header>
@@ -367,9 +368,29 @@
 <section id="contato" class="contato section-container">
 	<h1 class="section-title">Contato</h1>
 	<div class="contato-container">
-			<form method="post">
-			<input type="button" value="Send Email" onclick="sendEmail()"/>
-			</form>  
+
+<form class="email-form"id="form">
+			<div class="field">
+			<label for="from_name">Seu nome</label>
+			<input class="input input-nome" type="text" name="from_name" id="from_name" 
+			oninvalid="this.setCustomValidity('Nome obrigatório!')" required>
+			</div>
+			<div class="field">
+			<label for="reply_to">Seu email</label>
+			<input class="input input-from" type="email" name="reply_to" id="reply_to"
+			oninvalid="this.setCustomValidity('Email obrigatório!')" required>
+			</div>
+			<div class="field">
+			<label for="message">Mensagem</label>
+			<textarea class="input input-texto" rows="8" cols="30" type="text" name="message" id="message"
+			oninvalid="this.setCustomValidity('Mensagem obrigatória!')" required
+			spellcheck="false"></textarea>
+			</div>
+			<div class="field">
+  			<input class="btn-enviar" type="submit" id="button" value="Enviar" >
+			</div>
+</form>
+
 	</div>
 </section>	
 </div> <!-- fim flex container -->	
@@ -427,6 +448,17 @@
 
 <!-- --------------------------------------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------------------------------------- -->
+<!-- modal msg email -------------------------------------------------------------------------------->
+
+<div class="modal-msg-email hidden">
+	<div class="msg-container">
+		<img src="assets/msg-email.svg" alt="">
+		<h1>mensagem enviada :-)</h1>
+	</div>
+</div>
+
+<!-- --------------------------------------------------------------------------------------------- -->
+<!-- --------------------------------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------>
 
 <!---------------------------------------------------->
@@ -440,7 +472,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.7/gauge.min.js"></script>
 <!---------------------------------------------------->
 <!-- smtpjs -->
-<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <!-- script local -->
 <script src="script.js"></script>	
 <!---------------------------------------------------->
