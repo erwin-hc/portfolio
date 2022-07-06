@@ -3,6 +3,7 @@
 var body = document.querySelector('body');
 var modalConfig = document.querySelector('.modal-config-container');
 var modalLinks = document.querySelector('.modal-links-container');
+var modalMsgEmail = document.querySelector('.modal-msg-email');
 var seletorCores = document.querySelector('.cores-container');
 var navbar = document.querySelector(".navbar");
 var navLinks = document.querySelectorAll('.nav-ul-item');
@@ -16,22 +17,6 @@ var navUlLinks = document.querySelector('.nav-ul-container');
 var divContato = document.querySelector('.div-contato');
 
 /*-------------------------------------------------------------------------------------------------*/
-// FAVICON
-const setFavicon = (emoji) => {
-    const canvas = document.createElement('canvas');
-    canvas.height = 24;
-    canvas.width = 24;
-  
-    const ctx = canvas.getContext('2d');
-    ctx.font = '28px serif';
-    ctx.fillText(emoji, -2, 24);
-  
-    const favicon = document.querySelector('link[rel=icon]');
-    if (favicon) { favicon.href = canvas.toDataURL(); }
-  }
-  // Japanese Symbol for Beginner
-  setFavicon('🔰');
-
 /*-------------------------------------------------------------------------------------------------*/
 // ESCONDE/MOSTRA NAVBAR/MODALS SCROLL
 window.onscroll = function() {
@@ -79,6 +64,9 @@ iconeDark.addEventListener('click', function () {
   var textDarkLight = document.querySelector('.textoDarkLight');
   var imgJogoforca = document.querySelector('.img-jogoforca');
   var imgDecodificador = document.querySelector('.img-decodificador');
+  var cardBox = document.querySelectorAll('.card-box');
+  // console.log(cardBox)
+
 
   if (body.classList.contains('dark')) {
     document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-dark`);
@@ -89,6 +77,12 @@ iconeDark.addEventListener('click', function () {
     iconeDark.src="assets/light-mode.svg";
     imgJogoforca.src = "assets/jogodaforca-d.png"
     imgDecodificador.src = "assets/decodificador-d.png"
+
+    cardBox.forEach(function (index) {
+      index.style.backgroundColor = "var(--cor-bg-dark-card)";
+    });
+
+
   } else {
     document.documentElement.style.setProperty('--cor-bg', `var(--cor-bg-ligth`);
     document.documentElement.style.setProperty('--cor-font', `var(--font-bg-ligth)`);
@@ -98,6 +92,10 @@ iconeDark.addEventListener('click', function () {
     iconeDark.src="assets/dark-mode.svg"
     imgJogoforca.src = "assets/jogodaforca-l.png"
     imgDecodificador.src = "assets/decodificador-l.png"
+
+    cardBox.forEach(function (index) {
+      index.style.backgroundColor = "var(--cor-bg-light-card)";
+    });
   }
   mudaCor();
   fechaModalConfig();
@@ -230,6 +228,7 @@ typewriter
   .typeString("\n    ]")
   .typeString("\n};  ")
   .pauseFor(5000)
+  .deleteAll()
   .start(); 
 
 
@@ -238,18 +237,16 @@ typewriter
 // SCROLL REVAL
 /*-------------------------------------------------------------------------------------------------*/
 
-// const sr = ScrollReveal ({
-//     origin: 'top',
-//     distance: '20px',
-//     duration: 500,
-//     reset: true
-// });
+const sr = ScrollReveal ({
+    origin: 'left',
+    distance: '40px',
+    duration: 800,
+    reset: true
+});
 
-// sr.reveal(`.section-title,.scroll-revel`, {
-//     interval: 100
-// })
-
-
+sr.reveal(`.section-title,.scroll-revel,.card-box`, {
+    interval: 100
+})
 
 
 /*-------------------------------------------------------------------------------------------------*/
@@ -350,6 +347,11 @@ function animacaoMedidor() {
 
 
 // ENVIO EMAIL GMAIL
+var inputNome = document.getElementById('from_name');
+var inputFrom = document.getElementById('reply_to');
+var inputTexto = document.getElementById('message');
+
+
 (function(){
   emailjs.init("wwUibZ_fqYl6et2kg");
 })();
@@ -360,69 +362,101 @@ document.getElementById('form')
  .addEventListener('submit', function(event) {
    event.preventDefault();
 
-   btn.value = 'ENVIANDO';
+   var emailValido = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
 
-   // const serviceID = 'service_frpwugc';
-   // const templateID = 'template_fkbo3x6';
+                if (inputNome.value === ''){
+                inputNome.focus();
+                inputNome.placeholder = "Digite seu nome";
+                inputNome.style.border ="1px solid #F93154";
+                inputNome.style.backgroundColor ="#F9315410";
+
+                window.setTimeout(function() { 
+                inputNome.placeholder = "";
+                inputNome.style.border = "1px solid var(--cor-bordas)"; 
+                inputNome.style.backgroundColor ="rgba(var(--cor-bg),1)";
+                }, 1000);
+                return;
+
+                }
+                
+                if (!inputFrom.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
+                inputFrom.focus();
+                inputFrom.value = "";
+                inputFrom.placeholder = "Digite um email válido";
+                inputFrom.style.border ="1px solid #F93154";
+                inputFrom.style.backgroundColor ="#F9315410";
+                window.setTimeout(function() { 
+                inputFrom.placeholder = "";
+                inputFrom.style.border = "1px solid var(--cor-bordas)"; 
+                inputFrom.style.backgroundColor ="rgba(var(--cor-bg),1)";
+                }, 1000);
+                return;
+                }
+
+                if (inputTexto.value === ''){
+                inputTexto.focus();
+                inputTexto.style.border ="1px solid #F93154";
+                inputTexto.style.backgroundColor ="#F9315410";
+                window.setTimeout(function() { 
+                inputTexto.style.border = "1px solid var(--cor-bordas)"; 
+                inputTexto.style.backgroundColor ="rgba(var(--cor-bg),1)";
+                }, 1000);
+                return;
+                }
+   // inputVerde();
+   // msgEmailSucesso();
+
+  inputVermelho();
+   msgEmailErro();
+   btn.value = 'Enviando...';
+
+   const serviceID = 'service_frpwugc';
+   const templateID = 'template_fkbo3x6';
 
    // emailjs.sendForm(serviceID, templateID, this)
    //  .then(() => {
-   //    btn.value = 'Enviar';
-   //    alert('Sent!');
-   //  }, (err) => {
+   
    //    btn.value = 'Enivar';
+   //    this.reset();
+   //    // alert('Sent!');
+   //  }, (err) => {
+   //    btn.value = 'Enviar';
    //    alert(JSON.stringify(err));
    //  });
-   this.reset();
 });
 
 
-// INPUTS VERDES
-var inputNome = document.querySelector('.input-nome');
-var inputFrom = document.querySelector('.input-from');
-var inputTexto = document.querySelector('.input-texto');
 
-function OK() {
-      inputNome.style.backgroundColor = "#00B74A10";
-      inputTexto.style.backgroundColor = "#00B74A10";
-      inputFrom.style.backgroundColor = "#00B74A10";
-      inputNome.style.border = "1px solid #00B74A";
-      inputTexto.style.border = "1px solid #00B74A";
-      inputFrom.style.border = "1px solid #00B74A";
 
-      window.setTimeout(function() {
-        inputNome.style.backgroundColor = "rgba(var(--cor-bg),1)";
-        inputTexto.style.backgroundColor = "rgba(var(--cor-bg),1)";
-        inputFrom.style.backgroundColor = "rgba(var(--cor-bg),1)";
-        inputNome.style.border = "1px solid var(--cor-bordas)";
-        inputTexto.style.border = "1px solid var(--cor-bordas)";        
-        inputFrom.style.border = "1px solid var(--cor-bordas)";        
-      }, 700);
-
-      document.getElementById('form').reset();
-}
-
-// SALVAR ON CLICK 
-var btnEnviar = document.querySelector('.btn-enviar');
-btnEnviar.addEventListener('click',function (e) {
+// VALIDAR DADOS 
+function validaDados(e) {
         e.preventDefault();
+        
+        var emailValido = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
 
         if (inputNome.value === ''){
         inputNome.focus();
+        inputNome.placeholder = "Digite seu nome";
         inputNome.style.border ="1px solid #F93154";
         inputNome.style.backgroundColor ="#F9315410";
+
         window.setTimeout(function() { 
+        inputNome.placeholder = "";
         inputNome.style.border = "1px solid var(--cor-bordas)"; 
         inputNome.style.backgroundColor ="rgba(var(--cor-bg),1)";
         }, 1000);
         return;
-        }
 
-        if (inputFrom.value === ''){
+        }
+        
+        if (!inputFrom.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
         inputFrom.focus();
+        inputFrom.value = "";
+        inputFrom.placeholder = "Digite um email válido";
         inputFrom.style.border ="1px solid #F93154";
         inputFrom.style.backgroundColor ="#F9315410";
         window.setTimeout(function() { 
+        inputFrom.placeholder = "";
         inputFrom.style.border = "1px solid var(--cor-bordas)"; 
         inputFrom.style.backgroundColor ="rgba(var(--cor-bg),1)";
         }, 1000);
@@ -439,9 +473,76 @@ btnEnviar.addEventListener('click',function (e) {
         }, 1000);
         return;
         }
-
-        OK();
         inputNome.focus();
 
-});
+};
+
+// INPUTS VERDES
+function inputVerde() {
+      inputNome.style.backgroundColor = "#00B74A10";
+      inputTexto.style.backgroundColor = "#00B74A10";
+      inputFrom.style.backgroundColor = "#00B74A10";
+      inputNome.style.border = "1px solid #00B74A";
+      inputTexto.style.border = "1px solid #00B74A";
+      inputFrom.style.border = "1px solid #00B74A";
+
+      window.setTimeout(function() {
+        inputNome.style.backgroundColor = "rgba(var(--cor-bg),1)";
+        inputTexto.style.backgroundColor = "rgba(var(--cor-bg),1)";
+        inputFrom.style.backgroundColor = "rgba(var(--cor-bg),1)";
+        inputNome.style.border = "1px solid var(--cor-bordas)";
+        inputTexto.style.border = "1px solid var(--cor-bordas)";        
+        inputFrom.style.border = "1px solid var(--cor-bordas)";        
+      }, 700);
+}
+
+// INPUTS VERMELHOS
+function inputVermelho() {
+      inputNome.style.backgroundColor = "#F9315410";
+      inputTexto.style.backgroundColor = "#F9315410";
+      inputFrom.style.backgroundColor = "#F9315410";
+      inputNome.style.border = "1px solid #F93154";
+      inputTexto.style.border = "1px solid #F93154";
+      inputFrom.style.border = "1px solid #F93154";
+
+      window.setTimeout(function() {
+        inputNome.style.backgroundColor = "rgba(var(--cor-bg),1)";
+        inputTexto.style.backgroundColor = "rgba(var(--cor-bg),1)";
+        inputFrom.style.backgroundColor = "rgba(var(--cor-bg),1)";
+        inputNome.style.border = "1px solid var(--cor-bordas)";
+        inputTexto.style.border = "1px solid var(--cor-bordas)";        
+        inputFrom.style.border = "1px solid var(--cor-bordas)";        
+      }, 700);
+}
+
+// MODAL MSG EMAIL
+
+function msgEmailSucesso() {
+  var top = window.scrollY;
+  modalMsgEmail.querySelector('.msg-container').style.backgroundColor = "#00B74A";
+  modalMsgEmail.querySelector('h1').innerHTML = "Enviado com sucesso!";
+  modalMsgEmail.querySelector('img').src = "assets/email-sucesso.svg";
+
+  modalMsgEmail.style.top = `${top}px`;
+  modalMsgEmail.classList.toggle('hidden');
+  window.setTimeout(function (){
+    modalMsgEmail.classList.toggle('hidden');
+  },1500);
+
+}
+
+function msgEmailErro() {
+  var top = window.scrollY;
+  modalMsgEmail.querySelector('.msg-container').style.backgroundColor = "#F93154";
+  modalMsgEmail.querySelector('h1').innerHTML = "Erro, email não enviado!";
+  modalMsgEmail.querySelector('img').src = "assets/email-falha.svg";
+
+  modalMsgEmail.style.top = `${top}px`;
+  modalMsgEmail.classList.toggle('hidden');
+  window.setTimeout(function (){
+    modalMsgEmail.classList.toggle('hidden');
+  },1500);
+
+}
+
 
