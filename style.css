@@ -732,8 +732,8 @@ body {
 .input-nome {
 	text-transform: capitalize;	
 }
-.input-from {
-	text-transform: lowercase;	
+.input-nome {
+	text-transform: uppercase;
 }
 .field .input,
 .field textarea  {
@@ -773,13 +773,8 @@ body {
 	align-items: center;
 	justify-content: center;
 	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
 	width: 100vw;
 	height: 100vh;
-	/*background-color: rgba(0, 0, 0, 0.8);*/
 	z-index: 5;
 }
 .msg-container {
@@ -788,7 +783,7 @@ body {
 	align-items: center;
 	padding-inline: 20px;
 	width: 100%;
-	height: 200px;
+	height: 125px;
 	background-color: #5cb85c;
 }
 .msg-container img {
@@ -810,10 +805,10 @@ body {
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
 /*FOOTER*/
-/*.footer {
+.footer {
 	background-color: rgb(var(--cor-bg));
 	height: 80px;
-}*/
+}
 
 
 

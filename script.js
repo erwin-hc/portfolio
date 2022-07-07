@@ -350,7 +350,7 @@ function animacaoMedidor() {
 var inputNome = document.getElementById('from_name');
 var inputFrom = document.getElementById('reply_to');
 var inputTexto = document.getElementById('message');
-
+var formEmail = document.getElementById('form');
 
 (function(){
   emailjs.init("wwUibZ_fqYl6et2kg");
@@ -361,6 +361,8 @@ const btn = document.getElementById('button');
 document.getElementById('form')
  .addEventListener('submit', function(event) {
    event.preventDefault();
+
+   formEmail[0].value = formEmail[0].value.toUpperCase();
 
    var emailValido = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
 
@@ -403,26 +405,26 @@ document.getElementById('form')
                 }, 1000);
                 return;
                 }
-   // inputVerde();
-   // msgEmailSucesso();
 
-  inputVermelho();
-   msgEmailErro();
+
+
    btn.value = 'Enviando...';
 
    const serviceID = 'service_frpwugc';
    const templateID = 'template_fkbo3x6';
 
-   // emailjs.sendForm(serviceID, templateID, this)
-   //  .then(() => {
-   
-   //    btn.value = 'Enivar';
-   //    this.reset();
-   //    // alert('Sent!');
-   //  }, (err) => {
-   //    btn.value = 'Enviar';
-   //    alert(JSON.stringify(err));
-   //  });
+   emailjs.sendForm(serviceID, templateID, this)    
+    .then(() => {   
+    btn.value = 'Enivar';
+    inputVerde();
+    msgEmailSucesso();
+    // alert('Sent!');
+    }, (err) => {
+    btn.value = 'Enviar';
+    inputVermelho();
+    msgEmailErro();
+    // alert(JSON.stringify(err));
+    });
 });
 
 
@@ -444,7 +446,7 @@ function validaDados(e) {
         inputNome.placeholder = "";
         inputNome.style.border = "1px solid var(--cor-bordas)"; 
         inputNome.style.backgroundColor ="rgba(var(--cor-bg),1)";
-        }, 1000);
+        }, 1500);
         return;
 
         }
@@ -459,7 +461,7 @@ function validaDados(e) {
         inputFrom.placeholder = "";
         inputFrom.style.border = "1px solid var(--cor-bordas)"; 
         inputFrom.style.backgroundColor ="rgba(var(--cor-bg),1)";
-        }, 1000);
+        }, 1500);
         return;
         }
 
@@ -470,7 +472,7 @@ function validaDados(e) {
         window.setTimeout(function() { 
         inputTexto.style.border = "1px solid var(--cor-bordas)"; 
         inputTexto.style.backgroundColor ="rgba(var(--cor-bg),1)";
-        }, 1000);
+        }, 1500);
         return;
         }
         inputNome.focus();
@@ -493,7 +495,7 @@ function inputVerde() {
         inputNome.style.border = "1px solid var(--cor-bordas)";
         inputTexto.style.border = "1px solid var(--cor-bordas)";        
         inputFrom.style.border = "1px solid var(--cor-bordas)";        
-      }, 700);
+      }, 1500);
 }
 
 // INPUTS VERMELHOS
@@ -512,7 +514,7 @@ function inputVermelho() {
         inputNome.style.border = "1px solid var(--cor-bordas)";
         inputTexto.style.border = "1px solid var(--cor-bordas)";        
         inputFrom.style.border = "1px solid var(--cor-bordas)";        
-      }, 700);
+      }, 1500);
 }
 
 // MODAL MSG EMAIL
@@ -529,6 +531,10 @@ function msgEmailSucesso() {
     modalMsgEmail.classList.toggle('hidden');
   },1500);
 
+  window.setTimeout(function () {
+  formEmail.reset();
+  },1500);
+
 }
 
 function msgEmailErro() {
@@ -543,6 +549,9 @@ function msgEmailErro() {
     modalMsgEmail.classList.toggle('hidden');
   },1500);
 
-}
+  window.setTimeout(function () {
+  formEmail.reset();
+  },1500);
 
+}
 
