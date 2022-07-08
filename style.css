@@ -763,6 +763,33 @@ html {
 	animation: var(--tremer);
 }
 
+.card-curriculum {
+	margin-top: 150px;
+}
+.btn-curriculum {
+	background-color: rgba(var(--cor-tema),.7);
+	
+	font-family: 'Ubuntu', sans-serif;
+	min-width: 100px;
+	max-width: 300px;
+	height: 50px;
+	border: none;
+	margin: .5em;
+	border-radius: 10px;
+	box-shadow: var(--box-shadow);
+	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+}
+.btn-curriculum a {
+	color: var(--cor-font);
+	z-index: 2;
+	width: 100%;
+	height: 50px;
+	padding: 1rem 2rem;
+}
+.img-curriculum {
+	min-width: 150px;
+}
+
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/

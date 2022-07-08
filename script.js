@@ -236,8 +236,11 @@ typewriter
 const sr = ScrollReveal ({
     origin: 'top',
     distance: '40px',
-    duration: 800,
-    reset: true
+    duration: 500,
+    reset: true,
+    mobile: false
+
+
 });
 
 sr.reveal(`.section-title,.scroll-revel,.card-box`, {
