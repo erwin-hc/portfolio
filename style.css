@@ -1,14 +1,12 @@
 /*FONTS*/
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-/* font-family: 'Orbitron', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400&display=swap');
-/* font-family: 'Exo 2', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 /*RESET*/
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   box-sizing: border-box;
+  scroll-behavior: initial;
   scroll-behavior: smooth;
   list-style: none;
   text-decoration: none;
@@ -18,7 +16,8 @@
   color: #eee;
 }
 
-body {
+body,
+html {
 	  width: 100vw;
 	  min-height: 100vh;
 	  overflow-x: hidden;
@@ -28,8 +27,8 @@ body {
 :root {
 		--cor-bg: var(--cor-bg-dark);
 		--cor-font: var(--font-bg-dark);
-		--cor-tema: var(--cor-1); 
-		--cor-icones-svg: var(--svg-1);
+		--cor-tema: var(--cor-4); 
+		--cor-icones-svg: var(--svg-4);
 		--cor-svg-liks: var(--svg-dark);
 		--cor-bordas: var(--cor-bordas-dark);
 
@@ -41,25 +40,17 @@ body {
 		--font-bg-dark: #f2f2f2;
 		--font-bg-ligth: #181818; 	
 
-		/*--cor-bg-dark: 30,30,30;*/
-		--cor-bg-dark: 38, 38, 38;
-		/*--cor-bg-dark: 27,27,50;*/
-		--cor-bg-ligth: 251,251,251;
-		/*--cor-bg-ligth: 223,223,223;*/
+		--cor-bg-dark: 68,69,70; 
+		--cor-bg-ligth: 235,235,235;
 
-		--cor-bg-dark-card: #1e1e1e;
+		--cor-bg-dark-card: #3A3C3C;
 		--cor-bg-light-card: #dfdfdf;
 
-		/*--cor-1: 118,83,190; */
 				--cor-1: 18, 102, 241; 
-		/*--cor-2: 0,188,105; */
-				--cor-2: 178, 60, 253; 
-		/*--cor-3: 130, 74, 86; */
+				--cor-2: 164, 5, 198;
 				--cor-3: 0, 183, 74; 
-		/*--cor-4: 0,163,237; */
-				--cor-4: 249, 49, 84; 
+				--cor-4: 233, 84, 32;
 
-		/*--box-shadow: rgba(0, 0, 0, 0.6	) 0px 7px 29px 0px;*/
 		--box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;;
 
 		--tremer: tremer 1s cubic-bezier(.36,.07,.19,.97) both;
@@ -67,15 +58,11 @@ body {
 		--svg-dark: invert(99%) sepia(11%) saturate(109%) hue-rotate(215deg) brightness(112%) contrast(90%);
 		--svg-ligth: invert(0%) sepia(13%) saturate(254%) hue-rotate(316deg) brightness(88%) contrast(81%);
 
-/*--svg-1: invert(40%) sepia(56%) saturate(1086%) hue-rotate(226deg) brightness(79%) contrast(86%);
---svg-2: invert(68%) sepia(56%) saturate(5777%) hue-rotate(118deg) brightness(93%) contrast(102%);
---svg-3: invert(31%) sepia(11%) saturate(1742%) hue-rotate(297deg) brightness(101%) contrast(90%);
---svg-4: invert(46%) sepia(16%) saturate(4626%) hue-rotate(167deg) brightness(100%) contrast(105%);*/
 
 --svg-1: invert(23%) sepia(44%) saturate(5510%) hue-rotate(216deg) brightness(103%) contrast(88%);
---svg-2: invert(31%) sepia(53%) saturate(4198%) hue-rotate(262deg) brightness(99%) contrast(101%);
+--svg-2: invert(20%) sepia(72%) saturate(2929%) hue-rotate(277deg) brightness(92%) contrast(130%);
 --svg-3: invert(56%) sepia(46%) saturate(6229%) hue-rotate(116deg) brightness(98%) contrast(101%);
---svg-4: invert(42%) sepia(80%) saturate(3838%) hue-rotate(326deg) brightness(92%) contrast(114%);
+--svg-4: invert(37%) sepia(96%) saturate(3069%) hue-rotate(355deg) brightness(100%) contrast(83%);
 
 }
 /*ANIMACAO TREMER*/
@@ -101,6 +88,7 @@ body {
 /*HELPERS*/
 .hidden {
 	display: none!important;
+	/*background-color: transparent;*/
 }
 /*------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------*/
@@ -108,7 +96,7 @@ body {
 /*------------------------------------------------------------------------------------------------------*/
 /*NAVBAR*/
 .navbar {
-	background-color: rgb(var(--cor-bg-dark));
+	background-color: var(--cor-bg-dark-card);
 	height: 50px;
 	box-shadow: var(--box-shadow);
 	position: fixed;
@@ -134,7 +122,7 @@ body {
 	color: rgb(var(--cor-tema));
 	text-transform: uppercase;	
 	font-size: 1em;
-	font-family: 'Exo 2', sans-serif; 
+	font-family: 'Ubuntu', sans-serif;
 }
 .nav-ul-item {
 	margin: 1em;
@@ -207,7 +195,7 @@ body {
 }
 .titulo-perfil {
 	height: 50px;
-	font-family: 'Orbitron', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 1.5em;
 	letter-spacing: .25em;
 	color: var(--cor-font);
@@ -355,9 +343,9 @@ body {
 .section-title {
 	width: 80%;
 	padding: 100px 0 30px 30px;
-	font-family: 'Orbitron', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	color: rgb(var(--cor-tema));
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(1.5rem, 2.5vw, 2rem); 
 	display: flex;
 	justify-content: flex-start;
 	align-content: center;
@@ -373,11 +361,12 @@ body {
 	justify-content: space-evenly;
 	align-items: center;
 	flex-wrap: wrap;	
+
 }
 
 .sobre-mim-code-container,
 .sobre-mim-texto-container {
-	margin-inline: 30px;
+	margin-inline: 20px;
 	min-width: 320px;
 	width: 100%;
 	display: flex;
@@ -414,6 +403,9 @@ body {
 	background: rgba( var(--cor-tema),0.04);
 	border-radius: 10px;*/
 }
+.card-container h3 {
+	font-size: clamp(1.85rem, 2.5vw, 2.25rem); 
+}
 .card-container p {
 	font-size: clamp(1.35rem, 2.05vw, 1.75rem); 
 	color: var(--cor-font);
@@ -435,16 +427,25 @@ body {
 	margin-bottom: .85em;
 }*/
 .card-container svg {
-	margin-top: -50px;
+	/*margin-top: -50px;*/
 	width: 225px;
 	overflow: visible;
-	filter: brightness(.8) contrast(1.2);
+	/*filter: brightness(.8) contrast(1.2);*/
 	margin-bottom: 1.5em;
+
 }
 
 #CABECA {
-	animation: tremer 1s infinite;
-	transition: all 1s ease-in-out;	
+	animation: tremer 800ms infinite ease-in-out;
+	
+}
+
+
+
+#cor_cabeca,
+#cor_corpo,
+#cor_antena {
+	fill: rgb(var(--cor-tema));
 }
 
 /*------------------------------------------------------------------------------------------------------*/
@@ -649,7 +650,7 @@ body {
 }
 .btns button {
 	color: var(--cor-font);
-	font-family: 'Exo 2', sans-serif; 
+	font-family: 'Ubuntu', sans-serif;
 	min-width: 200px;
 	max-width: 300px;
 	width: 50%;
@@ -661,15 +662,15 @@ body {
 	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
 }
 .btns .link {
-	background-color: rgba(var(--cor-tema),1);
+	background-color: rgba(var(--cor-tema),.7);
 }
 .btns .repo {
-	background-color: rgba(var(--cor-tema),1);
+	background-color: rgba(var(--cor-tema),.7);
 }
 
 .btns .repo:hover,
 .btns .link:hover {
-	background-color: rgba(var(--cor-tema),0.9);
+	background-color: rgba(var(--cor-tema),1);
 	animation: var(--tremer);
 
 } 
@@ -720,7 +721,7 @@ body {
 	outline: none;
 	border: none;
 	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
-	font-family: 'Exo 2', sans-serif; 
+	font-family: 'Ubuntu', sans-serif;
 	resize: none;
 	color: var(--cor-font);
 	border-radius: 10px;
@@ -743,15 +744,14 @@ body {
 	outline: none;
 }
 .btn-enviar {
-	background-color: rgba(var(--cor-tema),1);
+	background-color: rgba(var(--cor-tema),.7);
 	color: var(--cor-font);
-	/*font-family: 'Orbitron', sans-serif;*/
-	font-family: 'Exo 2', sans-serif; 
+	font-family: 'Ubuntu', sans-serif;
 	min-width: 100px;
-	max-width: 300px;
+	max-width: 200px;
 	height: 50px;
 	border: none;
-	margin: .5em;
+	margin: 1.5em 0;
 	border-radius: 10px;
 	box-shadow: var(--box-shadow);
 	outline: none;
@@ -759,7 +759,7 @@ body {
 }
 
 .btn-enviar:hover {
-	background-color: rgba(var(--cor-tema),0.9);
+	background-color: rgba(var(--cor-tema),1);
 	animation: var(--tremer);
 }
 
@@ -807,9 +807,23 @@ body {
 /*FOOTER*/
 .footer {
 	background-color: rgb(var(--cor-bg));
-	height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
 }
 
+.div-contato-footer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid var(--cor-bordas);
+}
+
+.footer h3 {
+	width: 150px;
+}
 
 
 
@@ -862,6 +876,7 @@ body {
 	.sobre-mim-texto {
 		margin-top: 125px;
 	}
+
 
 }
 

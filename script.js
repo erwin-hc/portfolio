@@ -7,7 +7,6 @@ var modalMsgEmail = document.querySelector('.modal-msg-email');
 var seletorCores = document.querySelector('.cores-container');
 var navbar = document.querySelector(".navbar");
 var navLinks = document.querySelectorAll('.nav-ul-item');
-var navBg = getComputedStyle(document.documentElement).getPropertyValue('--cor-bg-dark'); 
 var iconeDark = document.querySelector('.dark-svg');
 var iconeLogo = document.querySelector('.logo-svg');
 var iconeConfig = document.querySelector('.conf-svg');
@@ -30,6 +29,7 @@ function mudaCor() {
   var corSvgIcones = getComputedStyle(document.documentElement).getPropertyValue('--cor-icones-svg'); 
   var fontColor = getComputedStyle(document.documentElement).getPropertyValue('--cor-font'); 
   var corTema = getComputedStyle(document.documentElement).getPropertyValue('--cor-tema'); 
+  var navBg = getComputedStyle(document.documentElement).getPropertyValue('--cor-bg-dark-card'); 
 
   
   if (window.pageYOffset > 0) {
@@ -41,14 +41,14 @@ function mudaCor() {
       index.style.color = `${fontColor}`;
     })
     
-    navbar.style.backgroundColor = `rgba(${navBg},0.5)`;
+    navbar.style.backgroundColor = 'transparent';
     navbar.style.boxShadow = "none";
 
   } else {
     iconeLogo.style.filter = `${corSvgIcones}`;
     iconeConfig.style.filter = `${corSvgIcones}`;
 
-    navbar.style.backgroundColor = `rgba(${navBg},1)`;
+    navbar.style.backgroundColor = `${navBg}`;
     navbar.style.boxShadow = `${shadow}`;
 
     navLinks.forEach(function (index) {
@@ -105,11 +105,11 @@ iconeDark.addEventListener('click', function () {
 /*-------------------------------------------------------------------------------------------------*/
 // TRAVA SCROLLBAR
 function travaScrollBars() {
-    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.style.overflowY = 'hidden';
 }
 // DESTRAVA SCROLLBAR
 function destravaScrollBars() {
-    document.documentElement.style.overflow = 'auto';
+    document.documentElement.style.overflowY = 'initial';
 }
 /*-------------------------------------------------------------------------------------------------*/
 // ABRE E FECHA MODAL LINKS
@@ -198,8 +198,6 @@ seletorCores.addEventListener('click', function (el) {
   }
 });
 
-
-
 /*-------------------------------------------------------------------------------------------------*/
 // typewriter
 /*-------------------------------------------------------------------------------------------------*/
@@ -231,14 +229,12 @@ typewriter
   .deleteAll()
   .start(); 
 
-
-
 /*-------------------------------------------------------------------------------------------------*/
 // SCROLL REVAL
 /*-------------------------------------------------------------------------------------------------*/
 
 const sr = ScrollReveal ({
-    origin: 'left',
+    origin: 'top',
     distance: '40px',
     duration: 800,
     reset: true
@@ -344,17 +340,15 @@ function animacaoMedidor() {
     }, 900);
 }
 
-
-
-// ENVIO EMAIL GMAIL
+/*-------------------------------------------------------------------------------------------------*/
+// EMAIL
+/*-------------------------------------------------------------------------------------------------*/
 var inputNome = document.getElementById('from_name');
 var inputFrom = document.getElementById('reply_to');
 var inputTexto = document.getElementById('message');
 var formEmail = document.getElementById('form');
 
-(function(){
-  emailjs.init("wwUibZ_fqYl6et2kg");
-})();
+const _0x5022cf=_0x4820;(function(_0xe3ed08,_0x33d921){const _0x31380e=_0x4820,_0x23114a=_0xe3ed08();while(!![]){try{const _0x275f4f=parseInt(_0x31380e(0x16f))/0x1+parseInt(_0x31380e(0x164))/0x2*(parseInt(_0x31380e(0x16c))/0x3)+parseInt(_0x31380e(0x16b))/0x4+-parseInt(_0x31380e(0x16e))/0x5*(-parseInt(_0x31380e(0x161))/0x6)+parseInt(_0x31380e(0x163))/0x7*(parseInt(_0x31380e(0x168))/0x8)+parseInt(_0x31380e(0x169))/0x9*(parseInt(_0x31380e(0x167))/0xa)+parseInt(_0x31380e(0x166))/0xb*(-parseInt(_0x31380e(0x16d))/0xc);if(_0x275f4f===_0x33d921)break;else _0x23114a['push'](_0x23114a['shift']());}catch(_0x3d2f5c){_0x23114a['push'](_0x23114a['shift']());}}}(_0x2421,0xb76f0),(function(){const _0x541512=_0x4820;emailjs[_0x541512(0x16a)](_0x541512(0x162));}()));function _0x2421(){const _0x3e5681=['48flEKPC','wwUibZ_fqYl6et2kg','1043UXiXGx','298rIxWCx','template_fkbo3x6','11yBRPfO','20FIoMin','27928EUHpLP','5154102JRySnN','init','5417276DfUDcx','3231hkUnjJ','46637028MNIEGB','240935sKUJlF','1071960VUVxOf'];_0x2421=function(){return _0x3e5681;};return _0x2421();}function _0x4820(_0x494147,_0x49b24f){const _0x242113=_0x2421();return _0x4820=function(_0x4820cd,_0x5a6760){_0x4820cd=_0x4820cd-0x161;let _0x2e176c=_0x242113[_0x4820cd];return _0x2e176c;},_0x4820(_0x494147,_0x49b24f);}const serviceID='service_frpwugc',templateID=_0x5022cf(0x165);
 
 const btn = document.getElementById('button');
 
@@ -363,7 +357,6 @@ document.getElementById('form')
    event.preventDefault();
 
    formEmail[0].value = formEmail[0].value.toUpperCase();
-
    var emailValido = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
 
                 if (inputNome.value === ''){
@@ -406,29 +399,19 @@ document.getElementById('form')
                 return;
                 }
 
-
-
    btn.value = 'Enviando...';
-
-   const serviceID = 'service_frpwugc';
-   const templateID = 'template_fkbo3x6';
 
    emailjs.sendForm(serviceID, templateID, this)    
     .then(() => {   
     btn.value = 'Enivar';
     inputVerde();
     msgEmailSucesso();
-    // alert('Sent!');
     }, (err) => {
     btn.value = 'Enviar';
     inputVermelho();
     msgEmailErro();
-    // alert(JSON.stringify(err));
     });
 });
-
-
-
 
 // VALIDAR DADOS 
 function validaDados(e) {
@@ -518,7 +501,6 @@ function inputVermelho() {
 }
 
 // MODAL MSG EMAIL
-
 function msgEmailSucesso() {
   var top = window.scrollY;
   modalMsgEmail.querySelector('.msg-container').style.backgroundColor = "#00B74A";
@@ -554,4 +536,7 @@ function msgEmailErro() {
   },1500);
 
 }
+/*-------------------------------------------------------------------------------------------------*/
+// Fim
+/*-------------------------------------------------------------------------------------------------*/
 
