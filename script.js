@@ -418,7 +418,7 @@ document.getElementById('form')
 
 // VALIDAR DADOS 
 function validaDados(e) {
-        e.preventDefault();
+        // e.preventDefault();
         
         var emailValido = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
 
