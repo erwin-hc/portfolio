@@ -21,6 +21,7 @@ html {
 	  width: 100vw;
 	  min-height: 100vh;
 	  overflow-x: hidden;
+	  font-size: calc(60% + 0.8vmin);;
 }
 body {
 	background-color: rgb(var(--cor-bg));
@@ -124,7 +125,8 @@ body {
 	text-decoration: none;
 	color: rgb(var(--cor-tema));
 	text-transform: uppercase;	
-	font-size: 1em;
+	font-size: 1rem;
+	/*font-size: var(--font-size-small);*/
 	font-family: 'Ubuntu', sans-serif;
 }
 .nav-ul-item {
@@ -137,15 +139,15 @@ body {
 /*-------------------------------*/
 /*ICONES*/
 .icon-svg {
-	width: 2.5em;
+	width: 2.5rem;
 	margin: .5em;
 	padding: .5em;
 	filter: var(--cor-icones-svg);
 	cursor: pointer;
 }
 .icon-svg-link {
-	width: 1.5em;
-	margin-right: 2em;
+	width: 2rem;
+	margin-right: 20px;
 	margin-left: 20px;
 	filter: var(--cor-svg-liks);
 	cursor: pointer;
@@ -199,10 +201,11 @@ body {
 .titulo-perfil {
 	height: 50px;
 	font-family: 'Ubuntu', sans-serif;
-	font-size: 1.5em;
+	font-size: 1.75rem;
 	letter-spacing: .25em;
 	color: var(--cor-font);
 	text-transform: uppercase;
+	margin-top: .5em;
 }
 .sobrenome {
 	color: rgba(var(--cor-tema),1);
@@ -216,7 +219,7 @@ body {
 	text-decoration: none;
 	color: var(--cor-font);
 	text-transform: uppercase;	
-	font-size: 1.25em;
+	font-size: 1.35rem;
 	letter-spacing: .35em;	
 }
 .ul-item:hover {
@@ -273,7 +276,7 @@ body {
 	width: 100%;
 	max-width: 250px;
 	text-align: left;
-	font-size: 20px;
+	font-size: 1.25rem;
 	letter-spacing: 4px;
 	color: var(--cor-font);
 	text-transform: uppercase;
@@ -338,7 +341,7 @@ body {
 }
 /*SECTION CONTAINER*/
 .section-container {
-	max-width: 1400px;
+	max-width: 1200px;
 	display: flex;
 	width: 100%;
 	min-height: 100vh;
@@ -349,7 +352,7 @@ body {
 	padding: 100px 0 30px 30px;
 	font-family: 'Ubuntu', sans-serif;
 	color: rgb(var(--cor-tema));
-	font-size: clamp(1.5rem, 2.5vw, 2rem); 
+	font-size: clamp(1.75rem, 2rem, 2.2rem); 
 	display: flex;
 	justify-content: flex-start;
 	align-content: center;
@@ -378,7 +381,7 @@ body {
 }
 .code {
 	/*white-space: pre-wrap;*/
-	font-size: clamp(1.35rem, 2.25vw, 1.85rem); 
+	font-size: clamp(1.5rem, 1.75rem, 2.2rem); 
 	color: var(--cor-font);
 	min-height: 400px;
 	min-width: 320px;
@@ -400,21 +403,17 @@ body {
 
 .card-container {
 	max-width: 450px;
-	/*border: thin solid var(--cor-bordas);*/
 	display: flex;
 	justify-content: center;
-	/*box-shadow: var(--box-shadow);
-	background: rgba( var(--cor-tema),0.04);
-	border-radius: 10px;*/
 }
 .card-container h3 {
-	font-size: clamp(1.85rem, 2.5vw, 2.25rem); 
+	font-size: 2.2rem; 
 }
 .card-container p {
-	font-size: clamp(1.35rem, 2.05vw, 1.75rem); 
+	font-size: clamp(1rem, 1.6rem, 2.2rem); 
 	color: var(--cor-font);
 	padding: .5em;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	text-align: justify;
   text-justify: inter-word;
 }
@@ -444,8 +443,6 @@ body {
 	
 }
 
-
-
 #cor_cabeca,
 #cor_corpo,
 #cor_antena {
@@ -473,7 +470,6 @@ body {
 	justify-content: space-evenly;
 	align-content: center;
 	flex: 1;
-	/*border: 1px solid var(--cor-bordas);*/
 	flex-wrap: wrap;
 }
 
@@ -491,7 +487,7 @@ body {
 	margin: 3em 1em;
 }
 .skill-box h3 {
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(1rem, 1.6rem, 2.2rem); 
 	color: var(--cor-font);
 	padding: .5em .85em;
 	letter-spacing: 2px;
@@ -568,15 +564,15 @@ body {
 	flex: 4;
 }
 .formacao-box h1 {
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(.8rem, 1.6rem, 2.2rem); 
 	color: rgba(var(--cor-tema),1);
 }
 .formacao-box h3 {
-		font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+		font-size: clamp(.8rem, 1.6rem, 2.2rem); 
 		color: var(--cor-font);
 }
 .formacao-box a {
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(.8rem, 1.6rem, 2.2rem); 
 	color: rgba(var(--cor-tema),1);
 }
 
@@ -636,7 +632,7 @@ body {
 }
 
 .experiencia-box h1 {
-	font-size: clamp(1.25rem, 2.2vw, 1.5rem); 
+	font-size: clamp(1.5rem, 1.75rem, 2.2rem); 
 	color: rgba(var(--cor-tema),0.8);
 	/*margin: .5em 0.5em;*/
 }
@@ -723,7 +719,7 @@ body {
 	padding: .25em;
 	outline: none;
 	border: none;
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(1.35rem, 1.5rem, 2rem); 
 	font-family: 'Ubuntu', sans-serif;
 	resize: none;
 	color: var(--cor-font);
@@ -758,7 +754,7 @@ body {
 	border-radius: 10px;
 	box-shadow: var(--box-shadow);
 	outline: none;
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(1.35rem, 1.5rem, 2rem); 
 }
 
 .btn-enviar:hover {
@@ -780,7 +776,7 @@ body {
 	margin: .5em;
 	border-radius: 10px;
 	box-shadow: var(--box-shadow);
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(1.35rem, 1.5rem, 2rem); 
 }
 .btn-curriculum a {
 	color: var(--cor-font);
@@ -823,7 +819,7 @@ body {
 
 }
 .msg-container h1 {
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(1.35rem, 1.5rem, 2rem); 
 	margin: 1em;
 	justify-self: center;
 	align-self: center;
@@ -841,6 +837,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex: 1;
+	font-size: clamp(1.35rem, 1.5rem, 2rem); 
 }
 
 .div-contato-footer {
