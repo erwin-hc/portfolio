@@ -3,8 +3,7 @@
 /*RESET*/
 * {
   margin: 0;
-  padding: 0;
-  font-family: 'Ubuntu', sans-serif;
+  padding: 0; 
   box-sizing: border-box;
   scroll-behavior: initial;
   scroll-behavior: smooth;
@@ -18,6 +17,7 @@
 
 body,
 html {
+	 font-family: 'Ubuntu', sans-serif;
 	  width: 100vw;
 	  min-height: 100vh;
 	  overflow-x: hidden;
@@ -126,8 +126,8 @@ body {
 	color: rgb(var(--cor-tema));
 	text-transform: uppercase;	
 	font-size: 1rem;
-	/*font-size: var(--font-size-small);*/
-	font-family: 'Ubuntu', sans-serif;
+	font-size: clamp(1rem, 1.15rem, 1.25rem); 
+
 }
 .nav-ul-item {
 	margin: 1em;
@@ -200,8 +200,7 @@ body {
 }
 .titulo-perfil {
 	height: 50px;
-	font-family: 'Ubuntu', sans-serif;
-	font-size: 1.75rem;
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	letter-spacing: .25em;
 	color: var(--cor-font);
 	text-transform: uppercase;
@@ -350,9 +349,8 @@ body {
 .section-title {
 	width: 80%;
 	padding: 100px 0 30px 30px;
-	font-family: 'Ubuntu', sans-serif;
 	color: rgb(var(--cor-tema));
-	font-size: clamp(1.75rem, 2rem, 2.2rem); 
+	font-size: clamp(2rem, 2rem, 2rem); 
 	display: flex;
 	justify-content: flex-start;
 	align-content: center;
@@ -380,8 +378,7 @@ body {
 	flex: 1;
 }
 .code {
-	/*white-space: pre-wrap;*/
-	font-size: clamp(1.5rem, 1.75rem, 2.2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	color: var(--cor-font);
 	min-height: 400px;
 	min-width: 320px;
@@ -410,7 +407,7 @@ body {
 	font-size: 2.2rem; 
 }
 .card-container p {
-	font-size: clamp(1rem, 1.6rem, 2.2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	color: var(--cor-font);
 	padding: .5em;
 	letter-spacing: 1px;
@@ -439,7 +436,7 @@ body {
 }
 
 #CABECA {
-	animation: tremer 800ms infinite ease-in-out;
+	animation: tremer 1000ms infinite ease-in-out;
 	
 }
 
@@ -487,7 +484,7 @@ body {
 	margin: 3em 1em;
 }
 .skill-box h3 {
-	font-size: clamp(1rem, 1.6rem, 2.2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	color: var(--cor-font);
 	padding: .5em .85em;
 	letter-spacing: 2px;
@@ -564,15 +561,15 @@ body {
 	flex: 4;
 }
 .formacao-box h1 {
-	font-size: clamp(.8rem, 1.6rem, 2.2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	color: rgba(var(--cor-tema),1);
 }
 .formacao-box h3 {
-		font-size: clamp(.8rem, 1.6rem, 2.2rem); 
+		font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 		color: var(--cor-font);
 }
 .formacao-box a {
-	font-size: clamp(.8rem, 1.6rem, 2.2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	color: rgba(var(--cor-tema),1);
 }
 
@@ -632,12 +629,12 @@ body {
 }
 
 .experiencia-box h1 {
-	font-size: clamp(1.5rem, 1.75rem, 2.2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	color: rgba(var(--cor-tema),0.8);
 	/*margin: .5em 0.5em;*/
 }
 .experiencia-box p {
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	color: var(--cor-font);
 	margin: .5em 0.5em;
 }
@@ -650,7 +647,6 @@ body {
 }
 .btns button {
 	color: var(--cor-font);
-	font-family: 'Ubuntu', sans-serif;
 	min-width: 200px;
 	max-width: 300px;
 	width: 50%;
@@ -659,7 +655,7 @@ body {
 	margin: .5em;
 	border-radius: 10px;
 	box-shadow: var(--box-shadow);
-	font-size: clamp(1.15rem, 2.05vw, 1.65rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 }
 .btns .link {
 	background-color: rgba(var(--cor-tema),.7);
@@ -712,14 +708,13 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	/*align-items: center;*/
 }
 .input,
 .field label {
 	padding: .25em;
 	outline: none;
 	border: none;
-	font-size: clamp(1.35rem, 1.5rem, 2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	font-family: 'Ubuntu', sans-serif;
 	resize: none;
 	color: var(--cor-font);
@@ -745,7 +740,6 @@ body {
 .btn-enviar {
 	background-color: rgba(var(--cor-tema),.7);
 	color: var(--cor-font);
-	font-family: 'Ubuntu', sans-serif;
 	min-width: 100px;
 	max-width: 200px;
 	height: 50px;
@@ -754,7 +748,7 @@ body {
 	border-radius: 10px;
 	box-shadow: var(--box-shadow);
 	outline: none;
-	font-size: clamp(1.35rem, 1.5rem, 2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 }
 
 .btn-enviar:hover {
@@ -767,8 +761,6 @@ body {
 }
 .btn-curriculum {
 	background-color: rgba(var(--cor-tema),.7);
-	
-	font-family: 'Ubuntu', sans-serif;
 	min-width: 100px;
 	max-width: 300px;
 	height: 50px;
@@ -776,7 +768,7 @@ body {
 	margin: .5em;
 	border-radius: 10px;
 	box-shadow: var(--box-shadow);
-	font-size: clamp(1.35rem, 1.5rem, 2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 }
 .btn-curriculum a {
 	color: var(--cor-font);
@@ -819,7 +811,7 @@ body {
 
 }
 .msg-container h1 {
-	font-size: clamp(1.35rem, 1.5rem, 2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
 	margin: 1em;
 	justify-self: center;
 	align-self: center;
@@ -837,7 +829,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex: 1;
-	font-size: clamp(1.35rem, 1.5rem, 2rem); 
+	font-size: clamp(1.25rem, 1.5rem, 1.75rem);  
 }
 
 .div-contato-footer {
