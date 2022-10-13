@@ -75,8 +75,8 @@ iconeDark.addEventListener('click', function () {
     document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-dark)`);
     textDarkLight.innerHTML = `<span>light-</span>mode`;
     iconeDark.src="assets/light-mode.svg";
-    imgJogoforca.src = "assets/jogodaforca-d.png"
-    imgDecodificador.src = "assets/decodificador-d.png"
+    // imgJogoforca.src = "assets/jogodaforca-d.png"
+    // imgDecodificador.src = "assets/decodificador-d.png"
 
     cardBox.forEach(function (index) {
       index.style.backgroundColor = "var(--cor-bg-dark-card)";
@@ -90,8 +90,8 @@ iconeDark.addEventListener('click', function () {
     document.documentElement.style.setProperty('--cor-bordas', `var(--cor-bordas-light)`);   
     textDarkLight.innerHTML = `<span>dark-</span>mode`;
     iconeDark.src="assets/dark-mode.svg"
-    imgJogoforca.src = "assets/jogodaforca-l.png"
-    imgDecodificador.src = "assets/decodificador-l.png"
+    // imgJogoforca.src = "assets/jogodaforca-l.png"
+    // imgDecodificador.src = "assets/decodificador-l.png"
 
     cardBox.forEach(function (index) {
       index.style.backgroundColor = "var(--cor-bg-light-card)";
@@ -99,8 +99,6 @@ iconeDark.addEventListener('click', function () {
   }
   mudaCor();
   fechaModalConfig();
-
-
 })
 /*-------------------------------------------------------------------------------------------------*/
 // TRAVA SCROLLBAR

@@ -635,7 +635,8 @@ body {
 }
 .experiencia-box p {
 	font-size: clamp(1.25rem, 1.5rem, 1.75rem); 
-	color: var(--cor-font);
+	/*color: var(--cor-font);*/
+	color: #f2f2f2;
 	margin: .5em 0.5em;
 }
 
